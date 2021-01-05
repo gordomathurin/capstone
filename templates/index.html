@@ -21,12 +21,17 @@
 </div>
 
 <div>
-    {% if request.user.avatar %}
+    <p>user = {{request.user}}</p>
+    <p>user = {{request.user.avatar}}</p>
+
+    {% if request.user.is_authenticated %}
+    {% if request.user.avatar%}
+
     <img class="img-thumbnail" src="{{ request.user.avatar.url }}" alt="{{ request.user.username }}"
-        style="width: 60px; max-height: 100px" />
+        style="width: 266px; max-height: 240px" />
+    {% endif %}
     {% else %}
-    <img class="img-thumbnail" src="/media/images/default.jpg" alt="{{ users.username }}"
-        style="width: 50px; max-height: 90px" />
+    <img class="" src="/media/images/default.jpg" alt="{{ users.username }}" style="width: 266px; max-height: 240px" />
     {% endif %}
 </div>
 
