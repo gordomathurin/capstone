@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 40px;
+    justify-content: center;
+    color: white;
+    background-color: rgb(141, 72, 120);
+  }
+  a {
+    color: rgb(247, 238, 238);
+    padding: 3%;
+  }
