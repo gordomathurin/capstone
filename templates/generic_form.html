@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+</br>
+{% block content %}
+
+</br>
+<div id="postform"></div>
+{% if request.user.is_authenticated != True %}
+<h1>Welcome to AnimeGram!</h1>
+</br>
+<h3>Please sign in ⬇️</h3>
+</br>
+{% endif %}
+
+<div>
+    <form action="" method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Submit!" />
+    </form>
+</div>
+</div>
+{% endblock %}

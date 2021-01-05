@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %}
+</br>
+<div align="left">
+
+    <a href="javascript:history.go(-1)">👽</a>&nbsp;
+    <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
+    <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
+    {% if request.user.is_authenticated %}
+    <a href="/logout/" class="btn btn-primary">🔓Logout</a>
+
+    {% else %}
+    <a href="/login/" class="btn btn-primary">🔒Login</a>
+
+    {% endif %}
+
+</div>
+
+<div>
+    <h1>Heyo, {{ request.user.username }}!</h1>
+    <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i>
+</div>
+
+<div>
+    {% if request.user.avatar %}
+    <img class="img-thumbnail" src="{{ request.user.avatar.url }}" alt="{{ request.user.username }}"
+        style="width: 60px; max-height: 100px" />
+    {% else %}
+    <img class="img-thumbnail" src="/media/images/default.jpg" alt="{{ users.username }}"
+        style="width: 50px; max-height: 90px" />
+    {% endif %}
+</div>
+
+{% endblock %}
