@@ -28,3 +28,6 @@ urlpatterns = [
     path('logout/', logout_view),
     path('signup/', signup_view),
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# referenced tutorial for media: https://www.youtube.com/watch?v=QC2cLkHoXLk
