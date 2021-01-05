@@ -122,6 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 # referenced article for media: https://stackoverflow.com/questions/34563454/django-imagefield-upload-to-path/34563512
 # referenced article for Staticfiles :https://docs.djangoproject.com/en/3.1/howto/static-files/
+#  referenced article for media_root : https://www.youtube.com/watch?v=LAIVhl2CG8E
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",

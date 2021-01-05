@@ -130,3 +130,4 @@ dmypy.json
 .vscode
 
 secrete_key.py
+SECRET_KEY
