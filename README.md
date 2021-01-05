@@ -19,3 +19,5 @@ Ability to like a photo
 
 
 
+# you need these :
+pip install Pillow
