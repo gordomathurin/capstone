@@ -7,5 +7,5 @@ class SignUpForm(forms.ModelForm):
         fields = ['username', 'password', 'about_me', 'avatar']
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=100)
+    username = forms.CharField(max_length=50)
     password = forms.CharField(widget=forms.PasswordInput)
