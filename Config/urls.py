@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from authentication.views import signup_view, logout_view, login_view
-from anime_user.views import index
+from anime_user.views import index, profile_view, profile_edit_view, delete_user
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +27,10 @@ urlpatterns = [
     path('login/', login_view),
     path('logout/', logout_view),
     path('signup/', signup_view),
+    path('<str:username>/', profile_view, name='profile'),
+    path('<str:username>/edit/', profile_edit_view, name='profile_edit'),
+    path('<str:username>/delete/', delete_user, name='delete'),
+
 ]
 if settings.DEBUG:
         urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

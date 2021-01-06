@@ -8,7 +8,7 @@ def signup_view(request):
         form = SignUpForm(request.POST,request.FILES)
         if form.is_valid():
             data = form.cleaned_data
-            new_user = AnimeUser.objects.create_user(username=data.get("username"), password=data.get("password"), about_me=data.get("about_me"), avatar=data.get("avatar"))
+            new_user = AnimeUser.objects.create_user(username=data.get("username"), password=data.get("password"), about_me=data.get("about_me"), avatar=data.get("avatar"), email=data.get("email"))
             login(request, new_user)
             return HttpResponseRedirect(reverse("homepage"))  
     form = SignUpForm()

@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %}
+</br>
+<div align="left">
+    <nav>
+        <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
+    </nav>
+</div>
+
+<div>
+    {% if not pro %}
+    <h2> ⭕ The user you are looking for does not exist</h2>
+    {% else %}
+    <h1>👨‍💻{{ pro.username }}</h1>
+    <a href="/" class="btn btn-primary">✅{{ pro }}</a>
+    {% if request.user.id == pro.id %}
+    <a href='edit/' class="btn btn-primary">Edit Anime Profile</a>
+    <a href='delete/' class="btn btn-primary"
+        onclick="return confirm('Are you sure you want to delete your anime profile?')">Delete Anime Profile</a>
+    {% endif %}
+
+    <div>
+        {% if pro.avatar %}
+        <img class="img-thumbnail" src="{{ pro.avatar.url }}" alt="{{ pro.username }}"
+            style="width: 150px; max-height: 200px" />
+        {% else %}
+        <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
+            style="width: 150px; max-height: 200px" />
+        {% endif %}
+    </div>
+    </br>
+    <div>
+        <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
+        <p>My email: {{pro.email}}</p>
+        <p>About me: {{pro.about_me}}</p>
+
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
