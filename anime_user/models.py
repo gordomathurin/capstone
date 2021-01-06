@@ -10,5 +10,9 @@ class AnimeUser(AbstractUser):
     created_on = models.DateField(auto_now_add=True)
     username = models.CharField(max_length=60, unique=True)
     email = models.EmailField(blank=True, null=True)
+    followers = models.ManyToManyField("self", symmetrical=False, blank=True, default='self')
 
     USERNAME_FIELD = 'username'
+
+    def __str__(self):
+        return f"@{self.username}"

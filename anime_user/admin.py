@@ -6,5 +6,5 @@ from anime_user.models import AnimeUser
 
 admin.site.register(AnimeUser, UserAdmin)
 
-UserAdmin.fieldsets += ('Custom fields set', {'fields': ('about_me', 'avatar')}),
+UserAdmin.fieldsets += ('Custom fields set', {'fields': ('about_me', 'avatar', 'followers')}),
 
