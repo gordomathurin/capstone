@@ -12,6 +12,10 @@
     {% else %}
     <h1>{{ pro.username }}</h1>
     {{ pro }}
+    {% if request.user.id == pro.id %}
+    <a href='/{{pro.username}}/edit/' style="color: black">Edit Anime Profile</a>
+    <a href='/{{pro.username}}/delete/' style="color: black">Delete Anime Profile</a>
+    {% endif %}
 
     <div>
         {% if pro.avatar %}
