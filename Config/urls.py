@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-
+from anime_user.views import *
 from authentication.views import signup_view, logout_view, login_view
 from anime_user.views import index, profile_view, profile_edit_view, delete_user
 
@@ -30,6 +30,8 @@ urlpatterns = [
     path('<str:username>/', profile_view, name='profile'),
     path('<str:username>/edit/', profile_edit_view, name='profile_edit'),
     path('<str:username>/delete/', delete_user, name='delete'),
+    path('user/unfollow/<int:userid>/', unfollow_user, name='unfollow'),
+    path('user/follow/<int:userid>/', follow_user, name='follow'),
 
 ]
 if settings.DEBUG:
