@@ -10,7 +10,8 @@
     {% if not pro %}
     <h2>The user you are looking for does not exist</h2>
     {% else %}
-    <h1>{{ info.username }}</h1>
+    <h1>{{ pro.username }}</h1>
+    {{ pro }}
 
     <div>
         {% if pro.avatar %}
