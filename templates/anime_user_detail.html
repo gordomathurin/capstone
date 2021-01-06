@@ -22,21 +22,13 @@
         {% endif %}
     </div>
     </br>
+    <div>
+        <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
+        <p>My email: {{pro.email}}</p>
+        <p>About me: {{pro.about_me}}</p>
 
-    <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
-    <p>About me: {{pro.about_me}}</p>
 
-    {% if request.user.id == pro.id %}
-    <a class="glyphicon glyphicon-pencil" href="edit/"></a>
-    <a class="glyphicon glyphicon-trash" href="remove/"
-        onclick="return confirm('Are you sure you want to delete this Anime profile?')"></a>
-    {% endif %}
-    </br>
-    </br>
-    </br>
-
-    {% endif %}
-    </br>
-
+        {% endif %}
+    </div>
 </div>
 {% endblock %}
