@@ -9,5 +9,6 @@ class AnimeUser(AbstractUser):
     avatar = models.ImageField(upload_to='images/', null=True, blank=True)
     created_on = models.DateField(auto_now_add=True)
     username = models.CharField(max_length=60, unique=True)
+    email = models.EmailField(blank=True, null=True)
 
     USERNAME_FIELD = 'username'
