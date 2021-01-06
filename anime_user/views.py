@@ -10,14 +10,14 @@ def index(request):
     return render(request, "index.html", {'data': data})
 
 def profile_view(request, username):
-    profile_insta = AnimeUser.objects.filter(username=username).first()
-    return render(request, "anime_user_detail.html", {"pro": profile_insta})
-
-    # anime_holder = {}
-    # user = AnimeUser.objects.get(username=username)
     # profile_insta = AnimeUser.objects.filter(username=username).first()
-    # anime_holder['pro'] = profile_insta
-    # return render(request, "anime_user_detail.html", anime_holder)
+    # return render(request, "anime_user_detail.html", {"pro": profile_insta})
+
+    anime_holder = {}
+    user_insta = AnimeUser.objects.filter(username=username).first()
+    profile_insta = AnimeUser.objects.filter(username=user_insta).first()
+    anime_holder['pro'] = profile_insta
+    return render(request, "anime_user_detail.html", anime_holder)
 
 def profile_edit_view(request, username):
     user = AnimeUser.objects.filter(username=username).first()
