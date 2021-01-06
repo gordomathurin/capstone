@@ -5,6 +5,8 @@ from anime_user.models import AnimeUser
 
 # Create your models here.
 
+REMEMBER TO REGISTER TO ADMIN PANEL!!!!!!!!!!!
+
 class AnimePost(models.Model):
     GENRE_CHOICES = (
         ('SHONEN','SHONEN'), 
