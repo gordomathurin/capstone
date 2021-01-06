@@ -8,13 +8,14 @@
 
 <div>
     {% if not pro %}
-    <h2>The user you are looking for does not exist</h2>
+    <h2> ⭕ The user you are looking for does not exist</h2>
     {% else %}
-    <h1>{{ pro.username }}</h1>
-    {{ pro }}
+    <h1>👨‍💻{{ pro.username }}</h1>
+    <a href="/" class="btn btn-primary">✅{{ pro }}</a>
     {% if request.user.id == pro.id %}
-    <a href='/{{pro.username}}/edit/' style="color: black">Edit Anime Profile</a>
-    <a href='/{{pro.username}}/delete/' style="color: black">Delete Anime Profile</a>
+    <a href='edit/' class="btn btn-primary">Edit Anime Profile</a>
+    <a href='delete/' class="btn btn-primary"
+        onclick="return confirm('Are you sure you want to delete your anime profile?')">Delete Anime Profile</a>
     {% endif %}
 
     <div>
