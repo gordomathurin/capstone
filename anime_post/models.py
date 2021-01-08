@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from datetime import date
 from django.db.models.signals import post_save
 from anime_user.models import AnimeUser, Follow
 from helpers.helper_file import *
@@ -21,7 +21,7 @@ class AnimePost(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     image = models.ImageField(upload_to=folder_path, null=True, blank=True)
     image_caption = models.TextField(max_length=600)
-    post_creation = models.DateField(default=timezone.now)
+    post_creation = models.DateField(auto_now_add=True)
     anime_genre = models.CharField(
         max_length=20, choices=GENRE_CHOICES, default="CHOOSE GENRE"
     )
@@ -37,7 +37,7 @@ class AnimePost(models.Model):
     def __str__(self):
         return f"{self.id} - {self.image} - {self.anime_genre} - {self.likes} - {self.post_creation} - {self.image_caption}  - {self.anime_user}"
 
-    def url_getter(sef):
+    def url_getter(self):
         return reverse("post_details", args=[str(self.id)])
 
 
@@ -49,7 +49,7 @@ class Feed(models.Model):
     anime_user = models.ForeignKey(
         AnimeUser, on_delete=models.CASCADE, related_name="user"
     )
-    date_post = models.DateField(default=timezone.now)
+    date_post = models.DateField(auto_now_add=True)
 
     def post_add(sender, instance, *args, **kwargs):
         post = instance
