@@ -1,9 +1,11 @@
-from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.shortcuts import render
 from anime_user.models import AnimeUser
 from anime_user.forms import EditProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
+
 # Create your views here.
 
 def index(request):
@@ -37,10 +39,16 @@ def profile_edit_view(request, username):
     return render(request, 'edit_anime_pro.html', {'form': form} )
 
 def delete_user(request, username):    
-    user = AnimeUser.objects.get(username = username)
-    user.delete()
-    messages.success(request, "The user has been deleted")
-    return render(request, 'index.html')
+    A_user = AnimeUser.objects.get(username = username)
+    if A_user.is_staff:
+        return HttpResponseForbidden(" ⭕ Staff anime profiles cannot be deleted from the browser. Plaese See an Admin")
+    elif A_user.username == request.user.username:
+        A_user.delete()
+        messages.success(request, "⭕ The user has been deleted")
+        return redirect('homepage')
+    else: 
+        return HttpResponseForbidden(" ⭕ You do not have permission to delete this user")
+
 
 @login_required
 def follow_user(request, userid):
