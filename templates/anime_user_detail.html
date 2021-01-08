@@ -1,16 +1,10 @@
 {% extends "base.html" %} {% block content %}
 </br>
-<div align="left">
-    <nav>
-        <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
-    </nav>
-</div>
-
-<div class="container">
+<div class="">
     {% if not pro %}
     <h2> ⭕ The user you are looking for does not exist</h2>
     {% else %}
-    <h1>👨‍💻{{ pro.username }}</h1>
+    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
     <a href="/" class="btn btn-primary">✅{{ pro }}</a>
     {% if request.user.id == pro.id %}
     <a href='edit/' class="btn btn-primary">Edit Anime Profile</a>
@@ -18,9 +12,9 @@
         onclick="return confirm('Are you sure you want to delete your anime profile?')">Delete Anime Profile</a>
 </div>
 {% endif %}
-<div class="container">
+<div class="">
     <div class="d-flex justify-content-start">
-        <p class="h1">{{ pro.username }}</p>
+        <p class="h1">👨‍💻{{ pro.username }}</p>
 
         {% if request.user.id != pro.id %}
         {% if pro in user_following %}
@@ -35,7 +29,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="">
     {% if pro.avatar %}
     <img class="img-thumbnail" src="{{ pro.avatar.url }}" alt="{{ pro.username }}"
         style="width: 150px; max-height: 200px" />
@@ -45,12 +39,10 @@
     {% endif %}
 </div>
 </br>
-<div class="container">
+<div class="">
     <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
     <p>My email: {{pro.email}}</p>
     <p>About me: {{pro.about_me}}</p>
-
-
     {% endif %}
 </div>
 </div>
