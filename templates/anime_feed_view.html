@@ -1,0 +1,14 @@
+{% for post in posts %}
+
+<div>
+  <img src="{{ post.image.url }}" alt="Feed Image" />
+  <h1>{{ post.anime_user.anime_user }}</h1>
+  <h1>{{ post.anime_user }}</h1>
+  <h1>{{ post.image_caption }}</h1>
+  <h1>{{ post.post_creation }}</h1>
+  <button>
+    {{ post.likes }}
+  </button>
+</div>
+
+{% endfor %}
