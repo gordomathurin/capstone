@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.db.models.signals import post_save
-from anime_user.models import AnimeUser
+from anime_user.models import AnimeUser, Follow
 from helpers.helper_file import *
 import uuid
 
@@ -41,15 +41,6 @@ class AnimePost(models.Model):
         return reverse("post_details", args=[str(self.id)])
 
 
-class Follow(models.Model):
-    follower = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="follower"
-    )
-    following = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="following"
-    )
-
-
 class Feed(models.Model):
     following = models.ForeignKey(
         AnimeUser, on_delete=models.CASCADE, related_name="feed"
@@ -73,6 +64,9 @@ class Feed(models.Model):
                 following=anime_user,
             )
             feed.save()
+
+    def __str__(self):
+        return f"{self.following} is viewing the latest post {self.post}"
 
 
 post_save.connect(Feed.post_add, sender=AnimePost)
