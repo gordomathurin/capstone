@@ -20,20 +20,22 @@ from django.conf.urls.static import static
 from anime_user.views import *
 from authentication.views import signup_view, logout_view, login_view
 from anime_user.views import index, profile_view, profile_edit_view, delete_user
+from anime_post.views import AddImage, ImagePostDetail
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index, name='homepage'),
-    path('login/', login_view),
-    path('logout/', logout_view),
-    path('signup/', signup_view),
-    path('<str:username>/', profile_view, name='profile'),
-    path('<str:username>/edit/', profile_edit_view, name='profile_edit'),
-    path('<str:username>/delete/', delete_user, name='delete'),
-    path('user/unfollow/<int:userid>/', unfollow_user, name='unfollow'),
-    path('user/follow/<int:userid>/', follow_user, name='follow'),
-
+    path("admin/", admin.site.urls),
+    path("", index, name="homepage"),
+    path("login/", login_view),
+    path("logout/", logout_view),
+    path("signup/", signup_view),
+    path("<str:username>/", profile_view, name="profile"),
+    path("<str:username>/edit/", profile_edit_view, name="profile_edit"),
+    path("<str:username>/delete/", delete_user, name="delete"),
+    path("user/unfollow/<int:userid>/", unfollow_user, name="unfollow"),
+    path("user/follow/<int:userid>/", follow_user, name="follow"),
+    path("<str:username>/post/", AddImage, name="add"),
+    path("<str:username>/post_detail/", ImagePostDetail, name="image_detail"),
 ]
 if settings.DEBUG:
-        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # referenced tutorial for media: https://www.youtube.com/watch?v=QC2cLkHoXLk
