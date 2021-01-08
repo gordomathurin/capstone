@@ -32,8 +32,8 @@ urlpatterns = [
     path("<str:username>/delete/", delete_user, name="delete"),
     path("user/unfollow/<int:userid>/", unfollow_user, name="unfollow"),
     path("user/follow/<int:userid>/", follow_user, name="follow"),
-    path("newpost/", new_post_view, name="add_post"),
-    path("animefeed/", anime_feed_view, name="anime_feed"),
+    path("newpost/", new_post_view, name="newpost"),
+    path("animefeed/", anime_feed_view, name="animefeed"),
     # path("<str:username>/post_detail/", ImagePostDetail, name="image_detail"),
 ]
 if settings.DEBUG:

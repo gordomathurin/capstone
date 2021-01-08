@@ -18,6 +18,6 @@ class NewPost(forms.Form):
     image_caption = forms.CharField(max_length=600, required=True)
     anime_genre = forms.ChoiceField(choices=GENRE_CHOICES, required=True)
 
-    class Meta:
-        model = AnimePost
-        fields = ("image", "image_caption", "anime_genre")
+    # class Meta:
+    #     model = AnimePost
+    #     fields = ("image", "image_caption", "anime_genre")

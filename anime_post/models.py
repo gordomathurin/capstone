@@ -59,8 +59,8 @@ class Feed(models.Model):
         for follower in anime_follower:
             feed = Feed(
                 post=post,
-                user=follower.follower,
-                date_post=date_post,
+                anime_user=follower.follower,
+                # date_post=date_post,
                 following=anime_user,
             )
             feed.save()

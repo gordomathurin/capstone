@@ -9,7 +9,8 @@ from anime_user.models import AnimeUser, Follow
 @login_required
 def new_post_view(request):
     html = "post_image.html"
-    anime_user = request.user.id
+    anime_user = request.user
+    print(f"**** THE USER IS {anime_user}******")
 
     if request.method == "POST":
         form = NewPost(request.POST, request.FILES)
@@ -19,9 +20,7 @@ def new_post_view(request):
             anime_genre = form.cleaned_data.get("anime_genre")
 
             holder, created = AnimePost.objects.get_or_create(
-                image=image,
-                image_caption=image_caption,
-                anime_user_id=anime_user,
+                image=image, image_caption=image_caption, anime_user=anime_user
             )
             holder.save()
             return redirect("anime_feed")
