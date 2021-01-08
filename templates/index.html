@@ -7,7 +7,7 @@
     <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
     {% if request.user.is_authenticated %}
     <a href="/logout/" class="btn btn-primary">🔓Logout</a>
-    <a href="/{{request.user.username}}/">Profile</a>
+    <a href="/{{request.user.username}}/" class="btn btn-primary">👨‍Profile</a>
 
     {% else %}
     <a href="/login/" class="btn btn-primary">🔒Login</a>
@@ -16,13 +16,16 @@
 
 </div>
 
-<div>
-    <h1>Welcome to AnimeGram!</h1>
+<div class="">
+    <h3><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
+            title="Emoticon Street Fighter 1"><img border="0" alt="Emoticon Street Fighter 1"
+                src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>🔥🔥🔥
+        Welcome to AnimeGram🔥🔥🔥</h3>
     <h1>Heyo, {{ request.user.username }}!</h1>
     <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i>
 </div>
 
-<div>
+<div class="">
     <p>user = {{request.user}}</p>
     <p>user = {{request.user.avatar}}</p>
 

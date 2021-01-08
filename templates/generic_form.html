@@ -1,19 +1,21 @@
 {% extends "base.html" %} {% block content %}
-
-</br>
 <div id="postform"></div>
 {% if request.user.is_authenticated != True %}
 <h1>Welcome to AnimeGram!</h1>
-</br>
-<h3>Please sign in ⬇️</h3>
-</br>
 {% endif %}
 
-<div>
-    <form action="" enctype="multipart/form-data" method="post">
-        {% csrf_token %} {{ form.as_p }}
-        <input type="submit" value="Submit!" />
-    </form>
-</div>
+<div class="">
+    <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1657/" target="_blank"
+        title="Emoticon Edmond Honda - Street Fighter"><img border="0" alt="Emoticon Edmond Honda - Street Fighter"
+            src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif"></a>&nbsp;🔥🔥🔥<a
+        href="/">🏛️Home</a>
+    <div>
+        <h3>Please sign in ⬇️</h3>
+        <form action="" enctype="multipart/form-data" method="post">
+            {% csrf_token %} {{ form.as_p }}
+            <input type="submit" value="Submit Form" />
+        </form>
+    </div>
+
 </div>
 {% endblock %}

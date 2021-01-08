@@ -24,7 +24,7 @@ def login_view(request):
                 login(request, user)
                 return HttpResponseRedirect(request.GET.get('next', reverse('homepage')))
     form = LoginForm()
-    return render(request, "generic_form.html", {"form": form})
+    return render(request, "login.html", {"form": form})
 
 def logout_view(request):
     logout(request)
