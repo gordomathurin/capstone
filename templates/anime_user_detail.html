@@ -7,9 +7,10 @@
     <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
     <a href="/" class="btn btn-primary">✅{{ pro }}</a>
     {% if request.user.id == pro.id %}
-    <a href='edit/' class="btn btn-primary">Edit Anime Profile</a>
+    <a href='edit/' class="btn btn-primary">⌨️ Edit Anime Profile</a>
     <a href='delete/' class="btn btn-primary"
-        onclick="return confirm('Are you sure you want to delete your anime profile?')">Delete Anime Profile</a>
+        onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌ Delete Anime
+        Profile</a>
 </div>
 {% endif %}
 <div class="">
