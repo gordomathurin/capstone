@@ -9,8 +9,6 @@ from django.http import HttpResponseForbidden
 
 
 # Create your views here.
-
-
 def index(request):
     data = AnimeUser.objects.all()
     return render(request, "index.html", {"data": data})

@@ -17,8 +17,8 @@ class AnimeUser(AbstractUser):
 
     USERNAME_FIELD = "username"
 
-    # def __str__(self):
-    #     return f"@{self.username}"
+    def __str__(self):
+        return f"@{self.username}"
 
 
 class Follow(models.Model):
