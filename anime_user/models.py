@@ -4,15 +4,18 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+
 class AnimeUser(AbstractUser):
     about_me = models.TextField(null=True, blank=True, verbose_name="About Me")
-    avatar = models.ImageField(upload_to='images/', null=True, blank=True)
+    avatar = models.ImageField(upload_to="images/", null=True, blank=True)
     created_on = models.DateField(auto_now_add=True)
     username = models.CharField(max_length=60, unique=True)
     email = models.EmailField(blank=True, null=True)
-    followers = models.ManyToManyField("self", symmetrical=False, blank=True, default='self')
+    followers = models.ManyToManyField(
+        "self", symmetrical=False, blank=True, default="self"
+    )
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = "username"
 
     def __str__(self):
         return f"@{self.username}"
