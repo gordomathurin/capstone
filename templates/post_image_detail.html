@@ -1,81 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="d-flex justify-content-center">
-    <div class="pic_detail_containter">
-        <div class="width_row mx-auto border-top border-left border-right">
-            <div class="row row-cols-2 m-1">
-                <div class="col-2">
-                    {% if pro.avatar %}
-                    <a href="/{{pro.username}}"><img id="profile-pic" class="rounded-circle p-1"
-                            src="{{ pro.avatar.url }}" alt="{{ pro.username }}"
-                            style="width: 65px; height: 65px;" /></a>
-                    {% else %}
-                    <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
-                        style="width: 65px; max-height: 65px" />
-                    {% endif %}
-                </div>
-
-                <div class="col-8">
-                    <div class="row">
-                        <div class="mt-n1">
-                            <h4>{{pro.username}}</h4>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="mt-n3">
-                            <h4>{{anime.anime_genre}} {{anime.anime_image}} {{anime.anime_caption}}</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            {% if anime.post_image %}
-            <img class="img-fluid mx-auto d-block" src="{{ anime.anime_image.url }}" alt="{{ anime.model }}"
-                style="width: 600px; height: 600px" />
-            {% else %}
-            <img class="img-fluid mx-auto d-block" src="/static/images/default.jpg" alt="{{ anime.likes}}"
-                style="width: 600px; height: 600px" />
-            {% endif %}
-        </div>
+<div class="comments mx-auto border-bottom border-left border-right">
+    <div class="border-bottom caption">
+        <p class="p-4"><span class="bold">{{ anime.username }} </span><span class="cap-text">{{anime.caption}}</span>
+        </p>
     </div>
+    {% for comment in comment_list %}
+    <div class="border-bottom">
+        <div>{{ comment.created_on }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.content|linebreaks }}</p>
+        {% if request.user.id == car.poster.id or request.user.id == comment.author.id %}
+        <a href='/comment/{{comment.id}}/delete/'
+            onclick="return confirm('Are you sure you want to delete this comment?')">Delete Comment</a>
+        {% endif %}
+        {% if request.user.id == comment.author.id %}
+        <a href='/comment/{{comment.id}}/edit/'>Edit Comment</a>
+        {% endif %}
+        <span class="detail_icons m-2"><a href="/comment/{{ comment.id }}/like/"><i class="far fa-heart"
+                    style="font-size:18px"></i></a></span>
+        <span class="h5 ml-3 pb-2">Liked {{ comment.likes}} times</span>
+    </div>
+    {% empty %}
+    <p>No comments here yet :(</p>
+    {% endfor %}
 </div>
-<div class="width_row mx-auto border-bottom border-left border-right">
-    <span class="detail_icons ml-3 m-2"><a href="newcomment/"><i class="far fa-comment-dots"></i></a></span>
-    <span class="detail_icons m-2"><a href="/likes/{{ anime.id }}/"><i class="far fa-heart"></i></a></span>
-    </br>
-    <span class="h4 ml-3 pb-2">Liked {{ anime.likes}} times</span>
-    <span class="perms">{% if request.user.id == anime.poster.id %}
-        <a href="/post/{{anime.id}}/edit/" style="color: black">Edit Post | </a>
-        <a href="/post/{{anime.id}}/delete/" style="color: black"
-            onclick="return confirm('Are you sure you want to delete this post?')">Delete post</a>
-        {% endif %}</span>
-    </br>
-    <div class="comments mx-auto border-bottom border-left border-right">
-        <div class="border-bottom caption">
-            <p class="p-4"><span class="bold">{{ anime.username }} </span><span
-                    class="cap-text">{{anime.caption}}</span></p>
-        </div>
-        {% for comment in comment_list %}
-        <div class="border-bottom">
-            <div>{{ comment.created_on }}</div>
-            <strong>{{ comment.author }}</strong>
-            <p>{{ comment.content|linebreaks }}</p>
-            {% if request.user.id == car.poster.id or request.user.id == comment.author.id %}
-            <a href='/comment/{{comment.id}}/delete/'
-                onclick="return confirm('Are you sure you want to delete this comment?')">Delete Comment</a>
-            {% endif %}
-            {% if request.user.id == comment.author.id %}
-            <a href='/comment/{{comment.id}}/edit/'>Edit Comment</a>
-            {% endif %}
-            <span class="detail_icons m-2"><a href="/comment/{{ comment.id }}/like/"><i class="far fa-heart"
-                        style="font-size:18px"></i></a></span>
-            <span class="h5 ml-3 pb-2">Liked {{ comment.likes}} times</span>
-        </div>
-        {% empty %}
-        <p>No comments here yet :(</p>
-        {% endfor %}
-    </div>
 </div>
 
 {% endblock %}

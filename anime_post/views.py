@@ -1,8 +1,16 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.contrib.auth.decorators import login_required
+from anime_comment.helpers import add_one
+from django.shortcuts import render, HttpResponseRedirect, reverse, get_object_or_404, redirect
+from django.http import HttpResponseForbidden, HttpResponse
+
+# Models:
 from anime_post.models import AnimePost
-from anime_post.forms import NewPost
 from anime_user.models import AnimeUser, Follow
+from anime_comment.models import Comment
+# Forms:
+from anime_post.forms import NewPost
+from anime_comment.forms import CommentForm 
 
 
 # Create your views here.
@@ -35,3 +43,29 @@ def new_post_view(request):
     }
 
     return render(request, html, context)
+
+def post_form_view(request, postid):
+    post = get_object_or_404(AnimePost, id=postid)
+    user = request.user
+
+    # comment :
+    comments = Comment.objects.filter(post=post).order_by('date')
+    # comment from:
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=false)
+            comment.post = post
+            comment.user = user
+            comment.save()
+            return HttpResponseRedirect(reverse('post_details.html', args=[postid]))
+    else:
+        form = CommentForm()
+
+    context = {
+        'post': post,
+        'form': form,
+        'comments':comments,
+    }
+
+    return HttpResponseRedirect('post_detail.html', request)
