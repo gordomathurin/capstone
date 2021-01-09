@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "authentication",
     "anime_user",
-    "anime_post"
+    "anime_post",
+    "anime_comment",
 ]
 
 MIDDLEWARE = [

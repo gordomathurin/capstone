@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from anime_user.views import *
 from authentication.views import signup_view, logout_view, login_view
 from anime_post.views import *
+from anime_comment.views import *
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -34,6 +36,12 @@ urlpatterns = [
     path("user/follow/<int:userid>/", follow_user, name="follow"),
     path("newpost/", new_post_view, name="newpost"),
     path("animefeed/", anime_feed_view, name="animefeed"),
+    path('post/<int:post_id>/newcomment/', comment_form_view),
+    path('comment/<int:pk>/delete/', del_comment, name='del_comment'),
+    path('comment/<int:pk>/edit/', edit_comment, name='del_comment'),
+    path('comment/<int:pk>/like/', comment_likes, name='like'),
+   
+
     # path("<str:username>/post_detail/", ImagePostDetail, name="image_detail"),
 ]
 if settings.DEBUG:

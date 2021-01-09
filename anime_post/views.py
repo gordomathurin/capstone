@@ -23,7 +23,7 @@ def new_post_view(request):
                 image=image, image_caption=image_caption, anime_user=anime_user
             )
             holder.save()
-            return redirect("anime_feed")
+            return redirect("animefeed")
 
         else:
             form = NewPost()
