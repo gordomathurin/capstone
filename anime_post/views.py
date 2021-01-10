@@ -39,16 +39,19 @@ def new_post_view(request):
 @login_required
 def like_view(request, post_id):
     anime_user = request.user
-    anime_post = AnimePost.objects.filter(id=post_id)
-    like_count = AnimePost.likes
+    anime_post = AnimePost.objects.get(id=post_id)
+    like_count = anime_post.likes
 
-    liked = Likes.objects.filter(user=anime_user, post=post).count()
+    post_liked = Likes.objects.filter(
+        anime_user=anime_user, anime_post=anime_post
+    ).count()
+    print(post_liked)
 
-    if not like:
-        like = Likes.objects.create(user=anime_user, post=post)
+    if not post_liked:
+        post_liked = Likes.objects.create(anime_user=anime_user, anime_post=anime_post)
         like_count = like_count + 1
     else:
-        Likes.objects.filter(user=anime_user, post=post).delete()
+        Likes.objects.filter(anime_user=anime_user, anime_post=anime_post).delete()
         like_count = like_count - 1
 
     anime_post.likes = like_count
