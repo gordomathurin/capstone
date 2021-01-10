@@ -18,8 +18,8 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from anime_user.views import *
-from authentication.views import signup_view, logout_view, login_view
 from anime_post.views import *
+from authentication.views import *
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -34,6 +34,7 @@ urlpatterns = [
     path("user/follow/<int:userid>/", follow_user, name="follow"),
     path("newpost/", new_post_view, name="newpost"),
     path("animefeed/", anime_feed_view, name="animefeed"),
+    path("like/<uuid:post_id>/", like_view, name="like"),
     # path("<str:username>/post_detail/", ImagePostDetail, name="image_detail"),
 ]
 if settings.DEBUG:
