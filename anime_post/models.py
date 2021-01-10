@@ -37,8 +37,14 @@ class AnimePost(models.Model):
     def __str__(self):
         return f"{self.id} - {self.image} - {self.anime_genre} - {self.likes} - {self.post_creation} - {self.image_caption}  - {self.anime_user}"
 
-    def url_getter(self):
-        return reverse("post_details", args=[str(self.id)])
+
+class Likes(models.Model):
+    anime_user = models.ForeignKey(
+        AnimeUser, on_delete=models.CASCADE, related_name="anime_user_like"
+    )
+    anime_post = models.ForeignKey(
+        AnimePost, on_delete=models.CASCADE, related_name="anime_post_like"
+    )
 
 
 class Feed(models.Model):
@@ -60,7 +66,6 @@ class Feed(models.Model):
             feed = Feed(
                 post=post,
                 anime_user=follower.follower,
-                # date_post=date_post,
                 following=anime_user,
             )
             feed.save()

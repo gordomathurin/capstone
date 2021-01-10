@@ -2,13 +2,15 @@
 
 <div>
   <img src="{{ post.image.url }}" alt="Feed Image" />
-  <h1>{{ post.anime_user.anime_user }}</h1>
-  <h1>{{ post.anime_user }}</h1>
-  <h1>{{ post.image_caption }}</h1>
-  <h1>{{ post.post_creation }}</h1>
-  <button>
-    {{ post.likes }}
-  </button>
+  <h3>{{ post.anime_user }}</h3>
+  <h3>{{ post.image_caption }}</h3>
+  <h3>{{ post.post_creation }}</h3>
+  <br />
+  <a href="{% url 'like' post.id %}">
+    <button>
+      {{ post.likes}}
+    </button>
+  </a>
 </div>
 
 {% endfor %}
