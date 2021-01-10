@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.shortcuts import render
-from anime_user.models import AnimeUser, Follow
-from anime_post.models import AnimePost, Feed
+from anime_user.models import AnimeUser
+from anime_post.models import AnimePost, Feed, Follow
 from anime_user.forms import EditProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -42,6 +42,7 @@ def anime_feed_view(request):
     return render(request, html, context)
 
 
+@login_required
 def profile_edit_view(request, username):
     user = AnimeUser.objects.filter(username=username).first()
     if request.method == "POST":
@@ -59,6 +60,7 @@ def profile_edit_view(request, username):
     return render(request, "edit_anime_pro.html", {"form": form})
 
 
+@login_required
 def delete_user(request, username):
     A_user = AnimeUser.objects.get(username=username)
     if A_user.is_staff:
@@ -76,19 +78,22 @@ def delete_user(request, username):
 
 
 @login_required
-def follow_user(request, userid):
-    following = AnimeUser.objects.get(pk=userid)
-    user = AnimeUser.objects.get(pk=request.user.id)
-    user.follower.add(following)
-    user.save()
+def follow_user(request, username):
+    print(f"++++++++{username}+++++++")
+    print(f"++++++++{request.user.username}+++++++")
+
+    following = Follow.objects.filter(pk=username)
+    anime_user = Follow.objects.get(pk=request.user.username)
+    anime_user.follower.add(following)
+    anime_user.save()
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
-@login_required
-def unfollow_user(request, userid):
-    following = AnimeUser.objects.get(pk=userid)
-    user = AnimeUser.objects.get(id=request.user.id)
-    if to_unfollow in user.follower.all():
-        user.follower.remove(following)
-        user.save()
-    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+# @login_required
+# def unfollow_user(request, userid):
+#     following = AnimeUser.objects.get(pk=userid)
+#     user = AnimeUser.objects.get(id=request.user.id)
+#     if to_unfollow in user.follower.all():
+#         user.follower.remove(following)
+#         user.save()
+#     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

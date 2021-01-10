@@ -9,9 +9,8 @@ from django.shortcuts import (
     redirect,
 )
 from django.http import HttpResponseForbidden, HttpResponse
-from anime_post.models import AnimePost
-from anime_post.models import AnimePost, Likes
-from anime_user.models import AnimeUser, Follow
+from anime_post.models import AnimePost, Likes, Follow, Feed
+from anime_user.models import AnimeUser
 from anime_comment.models import Comment
 from anime_post.forms import NewPost
 from anime_comment.forms import CommentForm
