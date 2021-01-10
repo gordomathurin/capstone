@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+
+<div class="card-content">
+    <div class="media">
+
+
+
+
+        <div class="card-content">
+
+            {% for comment in comments %}
+            <article class="media">
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        {% if comment.user.pro.post_image %}
+                        <img src="{{ comment.user.pro.post_image.url }}" alt="Placeholder image">
+                        {% else %}
+                        <img src="/static/images/default.jpg" alt="Placeholder image">
+                        {% endif %}
+                    </p>
+                </figure>
+
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                            {% if comment.user.pro.first_name %}
+                            <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name }}</strong><small>
+                                @{{ comment.user.username }}</small>
+                            {% else %}
+                            <strong>Unknown</strong>
+                            {% endif %}
+                            <br>
+                            {{ comment.content }}
+                            <br>
+                            <strong><small>{{ comment.date|naturaltime }}</small></strong>
+                        </p>
+                    </div>
+
+            </article>
+            {% endfor %}
+
+            <article class="media">
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        {% if request.user.pro.post_image %}
+                        <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
+                        {% else %}
+                        <img src="/static/images/default.jpg" alt="Placeholder image">
+                        {% endif %}
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <form method="post" action="" role="form">
+                        {% csrf_token %}
+                        <div class="field">
+                            <p class="control">
+                                {{ form.content }}
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <button type="submit" name="action" class="button">Post comment</button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </article>
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
