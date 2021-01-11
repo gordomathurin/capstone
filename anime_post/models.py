@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import date
 from django.db.models.signals import post_save
-from anime_user.models import AnimeUser, Follow
+from anime_user.models import AnimeUser
 from helpers.helper_file import *
 import uuid
 
@@ -30,10 +30,6 @@ class AnimePost(models.Model):
         AnimeUser, on_delete=models.CASCADE, related_name="image"
     )
 
-    def like_totals(self):
-        likes = self.like + 1
-        return likes
-
     def __str__(self):
         return f"{self.id} - {self.image} - {self.anime_genre} - {self.likes} - {self.post_creation} - {self.image_caption}  - {self.anime_user}"
 
@@ -45,6 +41,18 @@ class Likes(models.Model):
     anime_post = models.ForeignKey(
         AnimePost, on_delete=models.CASCADE, related_name="anime_post_like"
     )
+
+
+class Follow(models.Model):
+    follower = models.ForeignKey(
+        AnimeUser, on_delete=models.CASCADE, related_name="follower"
+    )
+    following = models.ForeignKey(
+        AnimeUser, on_delete=models.CASCADE, related_name="following"
+    )
+
+    def __str__(self):
+        return f"{self.follower} is following {self.following}"
 
 
 class Feed(models.Model):

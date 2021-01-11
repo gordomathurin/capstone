@@ -6,13 +6,15 @@
 {% block content %}
 
 
+<div>
+    <img src="{{post.image.url}}" alt="post">
 
+</div>
+
+<br>
 
 <div class="card-content">
     <div class="media">
-
-
-
 
         <div class="card-content">
 
@@ -40,7 +42,8 @@
                             <br>
                             {{ comment.content }}
                             <br>
-                            <strong><small>{{ comment.date|naturaltime }}</small></strong>
+                            <!-- <strong><small>comment.date|naturaltime </small></strong> -->
+                            <strong><small>{{ comment.date }}</small></strong>
                         </p>
                     </div>
 

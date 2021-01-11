@@ -9,9 +9,8 @@ from django.shortcuts import (
     redirect,
 )
 from django.http import HttpResponseForbidden, HttpResponse
-from anime_post.models import AnimePost
-from anime_post.models import AnimePost, Likes
-from anime_user.models import AnimeUser, Follow
+from anime_post.models import AnimePost, Likes, Follow, Feed
+from anime_user.models import AnimeUser
 from anime_comment.models import Comment
 from anime_post.forms import NewPost
 from anime_comment.forms import CommentForm
@@ -72,27 +71,30 @@ def like_view(request, post_id):
     return redirect("animefeed")
 
 
-def post_form_view(request, postid):
+def post_detail_view(request, post_id):
     html = "post_detail.html"
-    post = get_object_or_404(AnimePost, id=postid)
-    user = request.user
+    anime_post = get_object_or_404(AnimePost, id=post_id)
+    anime_user = request.user
     # comment :
-    comments = Comment.objects.filter(post=post).order_by("date")
+    comments = Comment.objects.filter(anime_post=anime_post).order_by("created_on")
     # comment form:
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=false)
-            comment.post = post
-            comment.user = user
+            comment = form.save(commit=False)
+            comment.post = anime_post
+            comment.author = anime_user
+            comment.anime_post_id = post_id
             comment.save()
-            return HttpResponseRedirect(reverse("post_details.html", args=[postid]))
+            # return HttpResponseRedirect(reverse("post_details.html", args=[post_id]))
+            return redirect("animefeed")
     else:
         form = CommentForm()
 
     context = {
-        "post": post,
+        "post": anime_post,
         "form": form,
         "comments": comments,
     }
-    return HttpResponseRedirect(html, request)
+    # return HttpResponseRedirect(html, request)
+    return render(request, html, context)
