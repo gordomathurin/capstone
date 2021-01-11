@@ -25,61 +25,10 @@ class AnimePost(models.Model):
     anime_genre = models.CharField(
         max_length=20, choices=GENRE_CHOICES, default="CHOOSE GENRE"
     )
-    likes = models.IntegerField(default=0)
     anime_user = models.ForeignKey(
         AnimeUser, on_delete=models.CASCADE, related_name="image"
     )
+    likes = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.id} - {self.image} - {self.anime_genre} - {self.likes} - {self.post_creation} - {self.image_caption}  - {self.anime_user}"
-
-
-class Likes(models.Model):
-    anime_user = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="anime_user_like"
-    )
-    anime_post = models.ForeignKey(
-        AnimePost, on_delete=models.CASCADE, related_name="anime_post_like"
-    )
-
-
-class Follow(models.Model):
-    follower = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="follower"
-    )
-    following = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="following"
-    )
-
-    def __str__(self):
-        return f"{self.follower} is following {self.following}"
-
-
-class Feed(models.Model):
-    following = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="feed"
-    )
-    post = models.ForeignKey(AnimePost, on_delete=models.CASCADE, related_name="post")
-    anime_user = models.ForeignKey(
-        AnimeUser, on_delete=models.CASCADE, related_name="user"
-    )
-    date_post = models.DateField(auto_now_add=True)
-
-    def post_add(sender, instance, *args, **kwargs):
-        post = instance
-        anime_user = post.anime_user
-        anime_follower = Follow.objects.all().filter(following=anime_user)
-
-        for follower in anime_follower:
-            feed = Feed(
-                post=post,
-                anime_user=follower.follower,
-                following=anime_user,
-            )
-            feed.save()
-
-    def __str__(self):
-        return f"{self.following} is viewing the latest post {self.post}"
-
-
-post_save.connect(Feed.post_add, sender=AnimePost)

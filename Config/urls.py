@@ -33,15 +33,15 @@ urlpatterns = [
     path("profile/<str:username>/edit/", profile_edit_view, name="profile_edit"),
     path("profile/<str:username>/delete/", delete_user, name="delete"),
     path("newpost/", new_post_view, name="newpost"),
-    path("animefeed/", anime_feed_view, name="animefeed"),
     path("post/<int:post_id>/newcomment/", comment_form_view),
     path("comment/<int:pk>/delete/", del_comment, name="del_comment"),
     path("comment/<int:pk>/edit/", edit_comment, name="del_comment"),
     path("comment/<int:pk>/like/", comment_likes, name="like"),
-    path("like/<uuid:post_id>/", like_view, name="like"),
+    # path("like/<uuid:post_id>/", like_view, name="like"),
     path("postdetail/<uuid:post_id>/", post_detail_view, name="anime_post_detail"),
-    # path("unfollow/<int:userid>/", unfollow_user, name="unfollow"),
-    path("follow/<str:username>/", follow_user, name="follow"),
+    path("animefeed/", FeedView.as_view(), name="animefeed"),
+    path("unfollow/<int:user_id>/", UnFollowView.as_view(), name="unfollow"),
+    path("follow/<int:user_id>/", FollowView.as_view(), name="follow"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

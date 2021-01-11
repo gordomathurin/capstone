@@ -56,7 +56,7 @@
                         {% if request.user.pro.post_image %}
                         <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
                         {% else %}
-                        <img src="/static/images/default.jpg" alt="Placeholder image">
+                        <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
                         {% endif %}
                     </p>
                 </figure>

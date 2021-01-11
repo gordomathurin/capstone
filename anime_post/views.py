@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.contrib.auth.decorators import login_required
-from anime_comment.helpers import add_one
+from anime_post.helpers import add_one
 from django.shortcuts import (
     render,
     HttpResponseRedirect,
@@ -9,7 +9,7 @@ from django.shortcuts import (
     redirect,
 )
 from django.http import HttpResponseForbidden, HttpResponse
-from anime_post.models import AnimePost, Likes, Follow, Feed
+from anime_post.models import AnimePost
 from anime_user.models import AnimeUser
 from anime_comment.models import Comment
 from anime_post.forms import NewPost
@@ -45,30 +45,6 @@ def new_post_view(request):
         "post_form": form,
     }
     return render(request, html, context)
-
-
-@login_required
-def like_view(request, post_id):
-    anime_user = request.user
-    anime_post = AnimePost.objects.get(id=post_id)
-    like_count = anime_post.likes
-
-    post_liked = Likes.objects.filter(
-        anime_user=anime_user, anime_post=anime_post
-    ).count()
-    print(post_liked)
-
-    if not post_liked:
-        post_liked = Likes.objects.create(anime_user=anime_user, anime_post=anime_post)
-        like_count = like_count + 1
-    else:
-        Likes.objects.filter(anime_user=anime_user, anime_post=anime_post).delete()
-        like_count = like_count - 1
-
-    anime_post.likes = like_count
-    anime_post.save()
-
-    return redirect("animefeed")
 
 
 def post_detail_view(request, post_id):
