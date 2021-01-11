@@ -21,6 +21,8 @@ from anime_user.views import *
 from anime_post.views import *
 from anime_comment.views import *
 from authentication.views import *
+from anime_notification.views import *
+
 
 
 urlpatterns = [
@@ -42,6 +44,9 @@ urlpatterns = [
     path("animefeed/", FeedView.as_view(), name="animefeed"),
     path("unfollow/<int:user_id>/", UnFollowView.as_view(), name="unfollow"),
     path("follow/<int:user_id>/", FollowView.as_view(), name="follow"),
+    path('notifications/', notification_view, name='notifications'),
+
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

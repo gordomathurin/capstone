@@ -15,6 +15,8 @@ from anime_comment.models import Comment
 from anime_post.forms import NewPost
 from anime_comment.forms import CommentForm
 from anime_post.forms import NewPost
+# from anime_notification.models import Notification
+
 
 
 # Create your views here.
