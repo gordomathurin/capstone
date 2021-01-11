@@ -19,14 +19,13 @@
 
         {% if request.user.id != pro.id %}
         {% if pro in user_following %}
-        <p class="h1 ml-5 "><a href="unfollow/{{pro.id}}/" type="button"
+        <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
                 class="btn btn-primary mx-auto btn-lg ">Unfollow</a></p>
         {% else %}
         <h1>
-            should be --> follow / {{pro.username}} / {{pro.id} / 
 
         </h1>
-        <p class="h1 ml-5 "><a href="/follow/{{ pro.username }}" type="button"
+        <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
                 class="btn btn-primary mx-auto btn-lg ">Follow</a></p>
         {% endif %}
         {% endif %}

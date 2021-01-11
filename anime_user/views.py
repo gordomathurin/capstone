@@ -1,7 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
-from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView, View
 from anime_user.models import AnimeUser
-from anime_post.models import AnimePost, Feed, Follow
+from anime_post.models import AnimePost
 from anime_user.forms import EditProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -22,24 +23,6 @@ def profile_view(request, username):
     anime_holder["user_following"] = user_following
     anime_holder["pro"] = profile_insta
     return render(request, "anime_user_detail.html", anime_holder)
-
-
-@login_required
-def anime_feed_view(request):
-    html = "anime_feed_view.html"
-    anime_user = request.user
-    posts = Feed.objects.filter(anime_user=anime_user)
-
-    anime_ids = []
-
-    for post in posts:
-        anime_ids.append(post.post_id)
-
-    posted_items = (
-        AnimePost.objects.filter(id__in=anime_ids).all().order_by("-post_creation")
-    )
-    context = {"posts": posted_items}
-    return render(request, html, context)
 
 
 @login_required
@@ -77,23 +60,34 @@ def delete_user(request, username):
         )
 
 
-@login_required
-def follow_user(request, username):
-    print(f"++++++++{username}+++++++")
-    print(f"++++++++{request.user.username}+++++++")
+class FeedView(LoginRequiredMixin, View):
+    def get(self, request):
+        html = "anime_feed_view.html"
+        anime_user = request.user
+        posts = AnimePost.objects.filter(anime_user=anime_user)
+        follower_post = AnimePost.objects.filter(
+            anime_user__in=anime_user.follower.all()
+        )
 
-    following = Follow.objects.filter(pk=username)
-    anime_user = Follow.objects.get(pk=request.user.username)
-    anime_user.follower.add(following)
-    anime_user.save()
-    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+        total_post = posts | follower_post
+        total_post = total_post.order_by("-post_creation")
+        context = {"posts": total_post}
+        return render(request, html, context)
 
 
-# @login_required
-# def unfollow_user(request, userid):
-#     following = AnimeUser.objects.get(pk=userid)
-#     user = AnimeUser.objects.get(id=request.user.id)
-#     if to_unfollow in user.follower.all():
-#         user.follower.remove(following)
-#         user.save()
-#     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+class FollowView(LoginRequiredMixin, View):
+    def get(self, request, user_id):
+        current_anime_user = request.user
+        user_to_follow = AnimeUser.objects.get(id=user_id)
+        current_anime_user.follower.add(user_to_follow)
+        current_anime_user.save()
+        return redirect("animefeed")
+
+
+class UnFollowView(LoginRequiredMixin, View):
+    def get(self, request, user_id):
+        current_anime_user = request.user
+        user_to_follow = AnimeUser.objects.get(id=user_id)
+        current_anime_user.follower.remove(user_to_follow)
+        current_anime_user.save()
+        return redirect("animefeed")
