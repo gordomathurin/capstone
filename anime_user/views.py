@@ -10,6 +10,7 @@ from django.http import HttpResponseForbidden
 
 
 # Create your views here.
+@login_required
 def index(request):
     html = "index.html"
     data = AnimeUser.objects.all()
@@ -18,6 +19,7 @@ def index(request):
     return render(request, html, context)
 
 
+@login_required
 def profile_view(request, username):
     anime_holder = {}
     user_insta = AnimeUser.objects.filter(username=username).first()
