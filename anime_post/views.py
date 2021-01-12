@@ -74,3 +74,21 @@ def post_detail_view(request, post_id):
     }
     # return HttpResponseRedirect(html, request)
     return render(request, html, context)
+
+
+def post_like_view(request, post_id):
+    anime_post = get_object_or_404(AnimePost, id=post_id)
+    # anime_post = AnimePost.objects.filter(id=post_id).first()
+    anime_post.likes += 1
+    anime_post.save()
+    # return redirect("animefeed")
+    return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
+
+def post_dislike_view(request, post_id):
+    anime_post = get_object_or_404(AnimePost, id=post_id)
+    # anime_post = AnimePost.objects.filter(id=post_id).first()
+    anime_post.dislikes += 1
+    anime_post.save()
+    # return redirect("animefeed")
+    return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))

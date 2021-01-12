@@ -16,9 +16,25 @@ from anime_comment.forms import CommentForm
 from anime_comment.helpers import add_one
 
 
-def comment_likes(request, pk):
-    add_one(pk, Comment)
-    return redirect(request.META.get("HTTP_REFERER"))
+def comment_like_view(request, comment_id):
+    comment = Comment.objects.filter(id=comment_id).first()
+    comment.likes += 1
+    comment.save()
+    return redirect("animefeed")
+    # return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
+
+def comment_dislike_view(request, comment_id):
+    comment = Comment.objects.filter(id=comment_id).first()
+    comment.dislike += 1
+    comment.save()
+    return redirect("animefeed")
+    # return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
+
+# def comment_likes(request, pk):
+#     add_one(pk, Comment)
+#     return redirect(request.META.get("HTTP_REFERER"))
 
 
 # def comment_form_view(request, post_id):

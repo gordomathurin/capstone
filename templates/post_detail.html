@@ -5,6 +5,7 @@
 
 {% block content %}
 
+{{post.pk}}
 
 
 <div>
@@ -12,12 +13,21 @@
 </div>
 
 <div>
-    <h1>
-        <button>
-            {{ post.likes }}
-        </button>
-    </h1>
+    <button>
+        {{ post.post_total }}
+    </button>
 </div>
+<a href='/like/{{ post.id }}/'>
+    <button>
+        LIKE
+    </button>
+</a>
+
+<a href='/dislike/{{ post.id }}/'>
+    <button>
+        DISLIKE
+    </button>
+</a>
 
 <br>
 
@@ -46,10 +56,22 @@
                                 @{{ comment.author }}</small>
                             {% else %}
                             <strong>Comment</strong>
-                            <button>
-                                {{ comment.add_one }} 
-                            </button>
-                            {{comment.likes}}
+                            <div>
+                                <button>
+                                    {{ comment.comment_total }}
+                                </button>
+                            </div>
+                            <a href='/likecomment/{{ comment.id }}/'>
+                                <button>
+                                    LIKE COMMENT
+                                </button>
+                            </a>
+                            
+                            <a href='/dislikecomment/{{ comment.id }}/'>
+                                <button>
+                                    DISLIKE COMMENT
+                                </button>
+                            </a>
                             {% endif %}
                             <br>
                             {{ comment.content }}
