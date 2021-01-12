@@ -11,8 +11,11 @@ from django.http import HttpResponseForbidden
 
 # Create your views here.
 def index(request):
+    html = "index.html"
     data = AnimeUser.objects.all()
-    return render(request, "index.html", {"data": data})
+    anime_post = AnimePost.objects.filter(anime_user=request.user)
+    context = {"data": data, "posts": anime_post}
+    return render(request, html, context)
 
 
 def profile_view(request, username):

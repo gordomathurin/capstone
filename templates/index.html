@@ -27,6 +27,18 @@
     <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i>
 </div>
 
+
+{% for post in posts%}
+<a href="/postdetail/{{post.id}}/">
+    <img src="{{ post.image.url }}" alt="image postings">
+</a>
+
+{{post.image_caption}}
+
+
+
+{% endfor %}
+
 <div class="">
     <p>user = {{request.user}}</p>
     <p>user = {{request.user.avatar}}</p>
