@@ -33,15 +33,19 @@ urlpatterns = [
     path("profile/<str:username>/edit/", profile_edit_view, name="profile_edit"),
     path("profile/<str:username>/delete/", delete_user, name="delete"),
     path("newpost/", new_post_view, name="newpost"),
-    path("post/<int:post_id>/newcomment/", comment_form_view),
-    path("comment/<int:pk>/delete/", del_comment, name="del_comment"),
-    path("comment/<int:pk>/edit/", edit_comment, name="del_comment"),
-    path("comment/<int:pk>/like/", comment_likes, name="like"),
-    # path("like/<uuid:post_id>/", like_view, name="like"),
+    path("likecomment/<int:comment_id>/", comment_like_view, name="comment_like"),
+    path(
+        "dislikecomment/<int:comment_id>/", comment_dislike_view, name="comment_dislike"
+    ),
+    path("like/<uuid:post_id>/", post_like_view, name="post_like"),
+    path("dislike/<uuid:post_id>/", post_dislike_view, name="post_dislike"),
     path("postdetail/<uuid:post_id>/", post_detail_view, name="anime_post_detail"),
     path("animefeed/", FeedView.as_view(), name="animefeed"),
     path("unfollow/<int:user_id>/", UnFollowView.as_view(), name="unfollow"),
     path("follow/<int:user_id>/", FollowView.as_view(), name="follow"),
+    # path("post/<int:post_id>/newcomment/", comment_form_view),
+    # path("comment/<int:pk>/delete/", del_comment, name="del_comment"),
+    # path("comment/<int:comment_id>/edit/", edit_comment, name="edit_comment"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

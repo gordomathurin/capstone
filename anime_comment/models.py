@@ -14,3 +14,7 @@ class Comment(models.Model):
     content = models.CharField(max_length=300, verbose_name="comment")
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.IntegerField(default=0)
+    dislike = models.IntegerField(default=0)
+
+    def comment_total(self):
+        return self.likes - self.dislike

@@ -29,6 +29,10 @@ class AnimePost(models.Model):
         AnimeUser, on_delete=models.CASCADE, related_name="image"
     )
     likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
 
     def __str__(self):
         return f"{self.id} - {self.image} - {self.anime_genre} - {self.likes} - {self.post_creation} - {self.image_caption}  - {self.anime_user}"
+
+    def post_total(self):
+        return self.likes - self.dislikes

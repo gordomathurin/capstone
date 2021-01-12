@@ -5,11 +5,29 @@
 
 {% block content %}
 
+{{post.pk}}
+
 
 <div>
     <img src="{{post.image.url}}" alt="post">
-
 </div>
+
+<div>
+    <button>
+        {{ post.post_total }}
+    </button>
+</div>
+<a href='/like/{{ post.id }}/'>
+    <button>
+        LIKE
+    </button>
+</a>
+
+<a href='/dislike/{{ post.id }}/'>
+    <button>
+        DISLIKE
+    </button>
+</a>
 
 <br>
 
@@ -23,9 +41,9 @@
                 <figure class="media-left">
                     <p class="image is-64x64">
                         {% if comment.user.pro.post_image %}
-                        <img src="{{ comment.user.pro.post_image.url }}" alt="Placeholder image">
+                        <img src="{{ comment.post.image.url }}" alt="Placeholder image">
                         {% else %}
-                        <img src="/static/images/default.jpg" alt="Placeholder image">
+                        <img src="/media/images/1.gif" alt="Placeholder image">
                         {% endif %}
                     </p>
                 </figure>
@@ -35,15 +53,31 @@
                         <p>
                             {% if comment.user.pro.first_name %}
                             <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name }}</strong><small>
-                                @{{ comment.user.username }}</small>
+                                @{{ comment.author }}</small>
                             {% else %}
-                            <strong>Unknown</strong>
+                            <strong>Comment</strong>
+                            <div>
+                                <button>
+                                    {{ comment.comment_total }}
+                                </button>
+                            </div>
+                            <a href='/likecomment/{{ comment.id }}/'>
+                                <button>
+                                    LIKE COMMENT
+                                </button>
+                            </a>
+                            
+                            <a href='/dislikecomment/{{ comment.id }}/'>
+                                <button>
+                                    DISLIKE COMMENT
+                                </button>
+                            </a>
                             {% endif %}
                             <br>
                             {{ comment.content }}
                             <br>
                             <!-- <strong><small>comment.date|naturaltime </small></strong> -->
-                            <strong><small>{{ comment.date }}</small></strong>
+                            <strong><small>{{ comment.created_on }}</small></strong>
                         </p>
                     </div>
 
