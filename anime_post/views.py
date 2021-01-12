@@ -64,6 +64,11 @@ def post_detail_view(request, post_id):
             comment.author = anime_user
             comment.anime_post_id = post_id
             comment.save()
+            notifications.objects.create(
+                publisher = anime_user
+                message = comment
+                notify = anime_post.anime_user
+            )
             # return HttpResponseRedirect(reverse("post_details.html", args=[post_id]))
             return redirect("animefeed")
     else:
