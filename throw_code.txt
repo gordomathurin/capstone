@@ -61,3 +61,6 @@
 #     anime_post.save()
 
 #     return redirect("animefeed")
+
+
+# path("like/<uuid:post_id>/", like_view, name="like"),

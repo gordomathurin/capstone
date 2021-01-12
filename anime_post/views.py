@@ -51,9 +51,9 @@ def post_detail_view(request, post_id):
     html = "post_detail.html"
     anime_post = get_object_or_404(AnimePost, id=post_id)
     anime_user = request.user
-    # comment :
+
     comments = Comment.objects.filter(anime_post=anime_post).order_by("created_on")
-    # comment form:
+
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -62,8 +62,8 @@ def post_detail_view(request, post_id):
             comment.author = anime_user
             comment.anime_post_id = post_id
             comment.save()
-            # return HttpResponseRedirect(reverse("post_details.html", args=[post_id]))
-            return redirect("animefeed")
+            return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
     else:
         form = CommentForm()
 

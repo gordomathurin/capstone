@@ -6,9 +6,17 @@
 {% block content %}
 
 
+
 <div>
     <img src="{{post.image.url}}" alt="post">
+</div>
 
+<div>
+    <h1>
+        <button>
+            {{ post.likes }}
+        </button>
+    </h1>
 </div>
 
 <br>
@@ -23,9 +31,9 @@
                 <figure class="media-left">
                     <p class="image is-64x64">
                         {% if comment.user.pro.post_image %}
-                        <img src="{{ comment.user.pro.post_image.url }}" alt="Placeholder image">
+                        <img src="{{ comment.post.image.url }}" alt="Placeholder image">
                         {% else %}
-                        <img src="/static/images/default.jpg" alt="Placeholder image">
+                        <img src="/media/images/1.gif" alt="Placeholder image">
                         {% endif %}
                     </p>
                 </figure>
@@ -35,15 +43,19 @@
                         <p>
                             {% if comment.user.pro.first_name %}
                             <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name }}</strong><small>
-                                @{{ comment.user.username }}</small>
+                                @{{ comment.author }}</small>
                             {% else %}
-                            <strong>Unknown</strong>
+                            <strong>Comment</strong>
+                            <button>
+                                {{ comment.add_one }} 
+                            </button>
+                            {{comment.likes}}
                             {% endif %}
                             <br>
                             {{ comment.content }}
                             <br>
                             <!-- <strong><small>comment.date|naturaltime </small></strong> -->
-                            <strong><small>{{ comment.date }}</small></strong>
+                            <strong><small>{{ comment.created_on }}</small></strong>
                         </p>
                     </div>
 
