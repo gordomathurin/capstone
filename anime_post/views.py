@@ -20,6 +20,7 @@ from anime_post.forms import NewPost
 # Create your views here.
 @login_required
 def new_post_view(request):
+
     html = "post_image.html"
     anime_user = request.user
 
@@ -92,3 +93,11 @@ def post_dislike_view(request, post_id):
     anime_post.save()
     # return redirect("animefeed")
     return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
+
+def error_404_view(request, exception):
+    return render(request, "404.html")
+
+
+def error_500_view(request):
+    return render(request, "500.html")
