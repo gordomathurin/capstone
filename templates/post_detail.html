@@ -79,6 +79,17 @@
                                     DISLIKE COMMENT
                                 </button>
                             </a>
+                            <a href='/editcomment/{{ comment.id }}/'>
+                                <button>
+                                    EDIT COMMENT
+                                </button>
+                            </a>
+
+                            <a href='/deletecomment/{{ comment.id }}/'>
+                                <button>
+                                    DELETE COMMENT
+                                </button>
+                            </a>
                             {% endif %}
                             <br>
                             {{ comment.content }}

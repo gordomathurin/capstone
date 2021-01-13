@@ -46,27 +46,59 @@ def comment_dislike_view(request, comment_id):
 #     return render(request, "comment_form.html", {"form": form})
 
 
-# def del_comment(request, pk):
-#     comment = Comment.objects.filter(pk=pk).first()
-#     if request.user.id == comment.author.id or request.user.id == comment.post.anime_user.id:
-#         comment.delete()
-#         return redirect('post', comment.post.id)
-#     else:
-#         return HttpResponseForbidden("You do not have permission to delete this comment")
+def delete_comment_view(request, comment_id):
+    comment = Comment.objects.filter(id=comment_id).first()
+    if (
+        request.user.id == comment.author.id
+        or request.user.id == comment.post.anime_user.id
+    ):
+        comment.delete()
+        return HttpResponseRedirect(f"/postdetail/{comment.anime_post.id}/")
+    else:
+        return HttpResponseForbidden(
+            "You do not have permission to delete this comment"
+        )
 
 
-# def edit_comment(request, pk):
-#     comment = get_object_or_404(Comment, pk=pk)
-#     if request.user.id == comment.author.id:
-#         if request.method == "POST":
-#             form = CommentForm(request.POST, instance=comment)
+def edit_comment_view(request, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    if request.user.id == comment.author.id:
+        if request.method == "POST":
+            form = CommentForm(request.POST, instance=comment)
+            if form.is_valid():
+                data = form.cleaned_data
+                comment.content = data.get("content")
+                comment.save()
+                return HttpResponseRedirect(f"/postdetail/{comment.anime_post.id}/")
+        else:
+            form = CommentForm(instance=comment)
+        return render(request, "comment_form.html", {"form": form})
+    else:
+        return HttpResponseForbidden("You do not have permission to edit this comment")
+
+
+# def edit_view(request, recipe_id):
+#     html = 'edit_recipe.html'
+#     edit_recipe = Recipe.objects.get(id=recipe_id)
+#     init_data = {
+#         'title': edit_recipe.title,
+#         'description': edit_recipe.description,
+#         'time_required': edit_recipe.time_required,
+#         'ingredients': edit_recipe.ingredients,
+#         'instructions': edit_recipe.instructions,
+#     }
+#     if request.user is edit_recipe.author.id or request.user.is_staff:
+#         if request.method == 'POST':
+#             form = EditRecipeForm(request.POST)
 #             if form.is_valid():
 #                 data = form.cleaned_data
-#                 comment.content = data.get('content')
-#                 comment.save()
-#                 return redirect('post', comment.post.id)
-#         else:
-#             form = CommentForm(instance=comment)
-#         return render(request, 'comment_form.html', {'form': form})
-#     else:
-#         return HttpResponseForbidden("You do not have permission to edit this comment")
+#                 edit_recipe.title = form.data['title']
+#                 edit_recipe.description = form.data['description']
+#                 edit_recipe.time_required = form.data['time_required']
+#                 edit_recipe.ingredients = form.data['ingredients']
+#                 edit_recipe.instructions = form.data['instructions']
+#                 edit_recipe.save()
+#                 return HttpResponseRedirect(reverse('Homepage'))
+#     form = EditRecipeForm(initial=init_data)
+#     display_context = {'form': form}
+#     return render(request, html, display_context)
