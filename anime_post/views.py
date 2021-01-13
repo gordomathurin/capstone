@@ -22,6 +22,7 @@ from anime_notification.models import Notification
 # Create your views here.
 @login_required
 def new_post_view(request):
+
     html = "post_image.html"
     anime_user = request.user
 
@@ -36,7 +37,7 @@ def new_post_view(request):
                 image=image, image_caption=image_caption, anime_user=anime_user
             )
             holder.save()
-            return redirect("animefeed")
+            return redirect("homepage")
 
         else:
             form = NewPost()
@@ -99,3 +100,11 @@ def post_dislike_view(request, post_id):
     anime_post.save()
     # return redirect("animefeed")
     return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
+
+
+def error_404_view(request, exception):
+    return render(request, "404.html")
+
+
+def error_500_view(request):
+    return render(request, "500.html")

@@ -11,11 +11,16 @@ from anime_notification.models import Notification
 
 
 # Create your views here.
+@login_required
 def index(request):
+    html = "index.html"
     data = AnimeUser.objects.all()
-    return render(request, "index.html", {"data": data})
+    anime_post = AnimePost.objects.filter(anime_user=request.user)
+    context = {"data": data, "posts": anime_post}
+    return render(request, html, context)
 
 
+@login_required
 def profile_view(request, username):
     anime_holder = {}
     user_insta = AnimeUser.objects.filter(username=username).first()

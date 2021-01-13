@@ -64,3 +64,10 @@
 
 
 # path("like/<uuid:post_id>/", like_view, name="like"),
+
+
+
+
+# def comment_likes(request, pk):
+#     add_one(pk, Comment)
+#     return redirect(request.META.get("HTTP_REFERER"))

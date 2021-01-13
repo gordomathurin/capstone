@@ -1,7 +1,16 @@
+<a href="/">
+  <button>
+    🏠 Home
+  </button>
+</a>
+<br />
+
 {% for post in posts %}
 
 <div>
-  <img src="{{ post.image.url }}" alt="Feed Image" />
+  <a href="/postdetail/{{post.id}}/">
+    <img src="{{ post.image.url }}" alt="Feed Image" />
+  </a>
   <h3>{{ post.anime_user }}</h3>
   <h3>{{ post.image_caption }}</h3>
   <h3>{{ post.post_creation }}</h3>

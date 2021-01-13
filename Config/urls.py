@@ -57,6 +57,8 @@ if settings.DEBUG:
 # referenced tutorial for media: https://www.youtube.com/watch?v=QC2cLkHoXLk
 
 
+handler404 = "anime_post.views.error_404_view"
+handler500 = "anime_post.views.error_500_view"
 # f5a1f5e3-0511-4881-9619-c978ef1c41c2
 # ef6863e6-1324-494f-a5c2-38d4b2f1336d
 # d5bd73fe-577d-41d8-b249-be38a4c59591
