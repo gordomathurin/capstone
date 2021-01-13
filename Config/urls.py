@@ -45,11 +45,15 @@ urlpatterns = [
     path("animefeed/", FeedView.as_view(), name="animefeed"),
     path("unfollow/<int:user_id>/", UnFollowView.as_view(), name="unfollow"),
     path("follow/<int:user_id>/", FollowView.as_view(), name="follow"),
+<<<<<<< HEAD
     path('notifications/', notification_view, name='notifications'),
 
 
+=======
+    path("editcomment/<int:comment_id>/", edit_comment_view, name="edit_comment"),
+    path("deletecomment/<int:comment_id>/", delete_comment_view, name="delete_comment")
+>>>>>>> 7949d943e5097a9f8a6546953f33521119df2e9d
     # path("post/<int:post_id>/newcomment/", comment_form_view),
-    # path("comment/<int:pk>/delete/", del_comment, name="del_comment"),
     # path("comment/<int:comment_id>/edit/", edit_comment, name="edit_comment"),
 ]
 if settings.DEBUG:
