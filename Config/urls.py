@@ -21,6 +21,8 @@ from anime_user.views import *
 from anime_post.views import *
 from anime_comment.views import *
 from authentication.views import *
+from anime_notification.views import *
+
 
 
 urlpatterns = [
@@ -43,6 +45,9 @@ urlpatterns = [
     path("animefeed/", FeedView.as_view(), name="animefeed"),
     path("unfollow/<int:user_id>/", UnFollowView.as_view(), name="unfollow"),
     path("follow/<int:user_id>/", FollowView.as_view(), name="follow"),
+    path('notifications/', notification_view, name='notifications'),
+
+
     path("editcomment/<int:comment_id>/", edit_comment_view, name="edit_comment"),
     path("deletecomment/<int:comment_id>/", delete_comment_view, name="delete_comment")
     # path("post/<int:post_id>/newcomment/", comment_form_view),

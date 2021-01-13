@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "anime_user",
     "anime_post",
     "anime_comment",
+    "anime_notification"
 ]
 
 MIDDLEWARE = [

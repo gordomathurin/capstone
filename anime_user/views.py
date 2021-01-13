@@ -7,6 +7,7 @@ from anime_user.forms import EditProfileForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
+from anime_notification.models import Notification
 
 
 # Create your views here.
@@ -25,8 +26,12 @@ def profile_view(request, username):
     user_insta = AnimeUser.objects.filter(username=username).first()
     profile_insta = AnimeUser.objects.get(username=username)
     user_following = request.user.follower.all()
+    notifications = Notification.objects.filter(notify=profile_insta)
     anime_holder["user_following"] = user_following
     anime_holder["pro"] = profile_insta
+    anime_holder["notifications"] = notifications
+
+
     return render(request, "anime_user_detail.html", anime_holder)
 
 
@@ -85,6 +90,12 @@ class FollowView(LoginRequiredMixin, View):
         current_anime_user = request.user
         user_to_follow = AnimeUser.objects.get(id=user_id)
         current_anime_user.follower.add(user_to_follow)
+        Notification.objects.create(
+            follow_message = "This user is following you",
+            notify = user_to_follow,
+            publisher = current_anime_user
+        )
+        
         current_anime_user.save()
         return redirect("animefeed")
 
