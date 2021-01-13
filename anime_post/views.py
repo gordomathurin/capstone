@@ -15,7 +15,7 @@ from anime_comment.models import Comment
 from anime_post.forms import NewPost
 from anime_comment.forms import CommentForm
 from anime_post.forms import NewPost
-# from anime_notification.models import Notification
+from anime_notification.models import Notification
 
 
 
@@ -64,6 +64,11 @@ def post_detail_view(request, post_id):
             comment.author = anime_user
             comment.anime_post_id = post_id
             comment.save()
+            # Notification.objects.create(
+            #     publisher = anime_user
+            #     message = comment
+            #     notify = anime_post.anime_user
+            # )
             return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
 
     else:
