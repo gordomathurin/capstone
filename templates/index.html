@@ -1,36 +1,54 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
 </br>
-<div align="left">
+<!DOCTYPE html>
+<html>
 
-    <a href="javascript:history.go(-1)">👽</a>&nbsp;
-    <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
-    <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
-    {% if request.user.is_authenticated %}
-    <a href="/logout/" class="btn btn-primary">🔓Logout</a>
-    <a href="/profile/{{request.user.username}}" class="btn btn-primary">👨‍Profile</a>
-    <a href="/newpost/" class="btn btn-primary">Add Post</a>
-    <a href="/animefeed/" class="btn btn-primary">Anime Feed</a>
-    <a href="/notifications/" class="btn btn-primary">📜 Notifications</a>
+<head></head>
+
+<body>
 
 
-    {% else %}
-    <a href="/login/" class="btn btn-primary">🔒Login</a>
+    <div align="left">
 
-    {% endif %}
-
-</div>
-
-<div class="">
-    <h3><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
-            title="Emoticon Street Fighter 1"><img border="0" alt="Emoticon Street Fighter 1"
-                src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>🔥🔥🔥
-        Welcome to AnimeGram🔥🔥🔥</h3>
-    <h1>Heyo, {{ request.user.username }}!</h1>
-    <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i>
-</div>
+        <a href="javascript:history.go(-1)">👽</a>&nbsp;
+        <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
+        <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
+        {% if request.user.is_authenticated %}
+        <a href="/logout/" class="btn btn-primary">🔓Logout</a>
+        <a href="/profile/{{request.user.username}}" class="btn btn-primary">👨‍Profile</a>
+        <a href="/newpost/" class="btn btn-primary">Add Post</a>
+        <a href="/animefeed/" class="btn btn-primary">Anime Feed</a>
+        <a href="/notifications/" class="btn btn-primary">📜 Notifications</a>
 
 
-<!-- {% for post in posts%}
+        {% else %}
+        <a href="/login/" class="btn btn-primary">🔒Login</a>
+
+        {% endif %}
+
+    </div>
+
+    <div class="">
+        <h3><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
+                title="Emoticon Street Fighter 1"><img border="0" alt="Emoticon Street Fighter 1"
+                    src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>🔥🔥🔥
+            アニメグラム へようこそ
+            🔥🔥🔥</h3>
+
+        <!-- アニメグラム へようこそ -->
+
+        <!-- <h1>Heyo, {{ request.user.username }}!</h1> -->
+        <h1>こんにちは皆さん
+            {{ request.user.username }}!</h1>
+        <p class="test2">Some text with writing-mode: vertical-rl.</p>
+
+        <!-- <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i> -->
+    </div>
+
+
+    <!-- {% for post in posts%}
 <a href="/postdetail/{{post.id}}/">
     <img src="{{ post.image.url }}" alt="image postings">
 </a>
@@ -39,30 +57,30 @@
 
 {% endfor %} -->
 
-<br />
-<div class="container">
-    <div class="d-flex justify-content-start flex-wrap white">
-        {% for post in posts %} {% if post.image %}
-        <a href="/postdetail/{{post.id}}/">
-            <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="{{ post.image_caption }}"
-                style="width: 277px; height: 277px" />
-        </a>
-        {% else %}
-        <a href="/postdetail/{{post.id}}/">
-            <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
-                style="width: 277px; height: 277px" />
-        </a>
-        {% endif %} {% endfor %}
+    <br />
+    <div class="container">
+        <div class="d-flex justify-content-start flex-wrap white">
+            {% for post in posts %} {% if post.image %}
+            <a href="/postdetail/{{post.id}}/">
+                <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="{{ post.image_caption }}"
+                    style="width: 277px; height: 277px" />
+            </a>
+            {% else %}
+            <a href="/postdetail/{{post.id}}/">
+                <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
+                    style="width: 277px; height: 277px" />
+            </a>
+            {% endif %} {% endfor %}
+        </div>
     </div>
-</div>
 
 
-<!-- <div class=""> -->
-<!-- <p>user = {{request.user}}</p>
+    <!-- <div class=""> -->
+    <!-- <p>user = {{request.user}}</p>
     <p>user = {{request.user.avatar}}</p>
     <p>user = {{ request.user.created_on }}</p> -->
 
-<!-- {% if request.user.is_authenticated %}
+    <!-- {% if request.user.is_authenticated %}
     {% if request.user.avatar%}
 
     <img class="img-thumbnail" src="{{ request.user.avatar.url }}" alt="{{ request.user.username }}"
@@ -72,5 +90,14 @@
     <img class="" src="/media/images/default.jpg" alt="{{ users.username }}" style="width: 266px; max-height: 240px" />
     {% endif %}
 </div> -->
-<br />
+
+    <div>
+        <h6 style="text-align:center">
+            <i>&copy;AnimeGram enthusiast since: {{ request.user.created_on }}</i>
+        </h6>
+    </div>
+</body>
+
+</html>
+
 {% endblock %}
