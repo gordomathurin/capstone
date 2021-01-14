@@ -12,7 +12,7 @@
     <h2> ⭕ The user you are looking for does not exist</h2>
     {% else %}
     <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
-    <a href="/" class="btn btn-primary">✅{{ pro }}</a>
+    <!-- <a href="/" class="btn btn-primary">✅{{ pro }}</a> -->
     {% if request.user.id == pro.id %}
     <a href='edit/' class="btn btn-primary">⌨️ Edit Anime Profile</a>
     <a href='delete/' class="btn btn-primary"
@@ -20,7 +20,7 @@
         Profile</a>
 </div>
 {% endif %}
-<div class="">
+<!-- <div class="">
     <div class="d-flex justify-content-start">
         <p class="h3"></p>
 
@@ -38,7 +38,7 @@
         {% endif %}
 
     </div>
-</div>
+</div> -->
 <div class="card">
     <div class="d-flex justify-content-start flex-wrap white">
         {% if pro.avatar %}
@@ -63,6 +63,25 @@
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
+            <div class="">
+                <div class="d-flex justify-content-start">
+                    <p class="h3"></p>
+
+                    {% if request.user.id != pro.id %}
+                    {% if pro in user_following %}
+                    <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
+                            class="btn btn-primary mx-auto btn-lg ">Unfollow</a></p>
+                    {% else %}
+                    <h1>
+
+                    </h1>
+                    <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
+                            class="btn btn-primary mx-auto btn-lg ">Follow</a></p>
+                    {% endif %}
+                    {% endif %}
+
+                </div>
+            </div>
             <p><a href="/">
                     <button>
                         🏠 Home
