@@ -30,20 +30,39 @@
 </div>
 
 
-{% for post in posts%}
+<!-- {% for post in posts%}
 <a href="/postdetail/{{post.id}}/">
     <img src="{{ post.image.url }}" alt="image postings">
 </a>
 
 {{post.image_caption}}
 
-{% endfor %}
+{% endfor %} -->
 
-<div class="">
-    <p>user = {{request.user}}</p>
+<br />
+<div class="container">
+    <div class="d-flex justify-content-start flex-wrap white">
+        {% for post in posts %} {% if post.image %}
+        <a href="/postdetail/{{post.id}}/">
+            <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="{{ post.image_caption }}"
+                style="width: 277px; height: 277px" />
+        </a>
+        {% else %}
+        <a href="/postdetail/{{post.id}}/">
+            <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
+                style="width: 277px; height: 277px" />
+        </a>
+        {% endif %} {% endfor %}
+    </div>
+</div>
+
+
+<!-- <div class=""> -->
+<!-- <p>user = {{request.user}}</p>
     <p>user = {{request.user.avatar}}</p>
+    <p>user = {{ request.user.created_on }}</p> -->
 
-    {% if request.user.is_authenticated %}
+<!-- {% if request.user.is_authenticated %}
     {% if request.user.avatar%}
 
     <img class="img-thumbnail" src="{{ request.user.avatar.url }}" alt="{{ request.user.username }}"
@@ -52,6 +71,6 @@
     {% else %}
     <img class="" src="/media/images/default.jpg" alt="{{ users.username }}" style="width: 266px; max-height: 240px" />
     {% endif %}
-</div>
-
+</div> -->
+<br />
 {% endblock %}
