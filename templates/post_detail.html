@@ -35,6 +35,32 @@
                                 </button>
                             </a>
                         </p>
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-64x64">
+                                    {% if request.user.pro.post_image %}
+                                    <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
+                                    {% else %}
+                                    <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
+                                    {% endif %}
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <form method="post" action="" role="form">
+                                    {% csrf_token %}
+                                    <div class="field">
+                                        <p class="control">
+                                            {{ form.content }}
+                                        </p>
+                                    </div>
+                                    <div class="field">
+                                        <p class="control">
+                                            <button type="submit" name="action" class="button">Post comment</button>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </article>
         </div>
         <script>
             function myFunction(x) {
@@ -73,7 +99,7 @@
             <div class="card-content">
 
                 {% for comment in comments %}
-                <article class="media">
+                <!-- <article class="media">
                     <figure class="media-left">
                         <p class="image is-64x64">
                             {% if comment.user.pro.post_image %}
@@ -92,77 +118,112 @@
                                     }}</strong><small>
                                     @{{ comment.author }}</small>
                                 {% else %}
-                                <strong>Comment</strong>
-                            <div>
-                                <button>
-                                    {{ comment.comment_total }}
-                                </button>
-                            </div>
-                            <a href='/likecomment/{{ comment.id }}/'>
-                                <button>
-                                    LIKE COMMENT
-                                </button>
-                            </a>
+                            <div> -->
+                <h2 style="text-align:center"> Comment</h2>
+                <div class="card">
+                    <<img src="{{post.image.url}}" alt="post" style="width:50%">
+                        <h1>❤️
+                            {{ comment.comment_total }}
 
-                            <a href='/dislikecomment/{{ comment.id }}/'>
-                                <button>
-                                    DISLIKE COMMENT
-                                </button>
-                            </a>
-                            <a href='/editcomment/{{ comment.id }}/'>
-                                <button>
-                                    EDIT COMMENT
-                                </button>
-                            </a>
+                        </h1>
 
-                            <a href='/deletecomment/{{ comment.id }}/'>
-                                <button>
-                                    DELETE COMMENT
-                                </button>
-                            </a>
-                            {% endif %}
-                            <br>
-                            {{ comment.content }}
-                            <br>
-                            <!-- <strong><small>comment.date|naturaltime </small></strong> -->
-                            <strong><small>{{ comment.created_on }}</small></strong>
-                            </p>
-                        </div>
 
-                </article>
-                {% endfor %}
-
-                <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            {% if request.user.pro.post_image %}
-                            <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
-                            {% else %}
-                            <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
-                            {% endif %}
-                        </p>
-                    </figure>
-                    <div class="media-content">
-                        <form method="post" action="" role="form">
-                            {% csrf_token %}
-                            <div class="field">
-                                <p class="control">
-                                    {{ form.content }}
+                        <a href='/likecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
+                                class="fa fa-thumbs-up"></i>
+                            <a href='/dislikecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
+                                    class="fa fa-thumbs-down"></i>
+                                <p><a href='/editcomment/{{ comment.id }}/'><button>Edit</button></a>
                                 </p>
-                            </div>
-                            <div class="field">
-                                <p class="control">
-                                    <button type="submit" name="action" class="button">Post comment</button>
+                                <p> <a href='/deletecomment/{{ comment.id }}/'><button>Delete</button></a>
                                 </p>
-                            </div>
-                        </form>
-                    </div>
-                </article>
+                                {{ comment.content }}
+                                <strong><small>{{ comment.created_on }}</small></strong>
+
+
+                                <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
+
+                                <div style="margin: 24px 0;">
+                                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+
+                                </div>
+                </div>
             </div>
-
-
-
         </div>
+    </div>
+    <!-- <strong>Comment</strong>
+                    <div>
+                        <button>
+                            {{ comment.comment_total }}
+                        </button>
+                    </div>
+                    <a href='/likecomment/{{ comment.id }}/'>
+                        <button>
+                            LIKE COMMENT
+                        </button>
+                    </a>
+
+                    <a href='/dislikecomment/{{ comment.id }}/'>
+                        <button>
+                            DISLIKE COMMENT
+                        </button>
+                    </a> -->
+    <!-- <a href='/editcomment/{{ comment.id }}/'>
+                        <button>
+                            EDIT COMMENT
+                        </button>
+                    </a>
+
+                    <a href='/deletecomment/{{ comment.id }}/'>
+                        <button>
+                            DELETE COMMENT
+                        </button>
+                    </a> -->
+    <!-- {% endif %} -->
+    <br>
+    <!-- {{ comment.content }} -->
+    <br>
+    <!-- <strong><small>comment.date|naturaltime </small></strong> -->
+    <!-- <strong><small>{{ comment.created_on }}</small></strong> -->
+    <!-- </p> -->
+    <!-- </div> -->
+
+    <!-- </article> -->
+    {% endfor %}
+
+    <!-- <article class="media">
+        <figure class="media-left">
+            <p class="image is-64x64">
+                {% if request.user.pro.post_image %}
+                <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
+                {% else %}
+                <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
+                {% endif %}
+            </p>
+        </figure>
+        <div class="media-content">
+            <form method="post" action="" role="form">
+                {% csrf_token %}
+                <div class="field">
+                    <p class="control">
+                        {{ form.content }}
+                    </p>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <button type="submit" name="action" class="button">Post comment</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </article> -->
+    </div>
+
+
+
+    </div>
     </div>
 
     </body>
