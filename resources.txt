@@ -1,0 +1,22 @@
+# A lost of references for resources being used :
+
+get_object_or_404()
+
+https://docs.djangoproject.com/en/3.1/topics/http/shortcuts/
+
+get_user(request)¶
+
+https://docs.djangoproject.com/en/3.1/ref/contrib/auth/
+
+Managing static files (e.g. images, JavaScript, CSS)¶
+
+https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+Migrating ManyToManyField to null true, blank true, isn't recognized
+
+https://stackoverflow.com/questions/18243039/migrating-manytomanyfield-to-null-true-blank-true-isnt-recognized
+
+How to Upload Files With Django
+
+https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html
+
