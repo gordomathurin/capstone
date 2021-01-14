@@ -1,11 +1,85 @@
-<a href="/">
-  <button>
-    🏠 Home
-  </button>
-</a>
-<br />
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
 
-{% for post in posts %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  </br>
+  <div align="left">
+    <a href="javascript:history.go(-1)">👽</a>&nbsp;
+    <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
+    <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
+    {% if request.user.is_authenticated %}
+    <a href="/logout/" class="btn btn-primary">🔓Logout</a>
+    <a href="/profile/{{request.user.username}}" class="btn btn-primary">👨‍Profile</a>
+    <a href="/newpost/" class="btn btn-primary">Add Post</a>
+    <a href="/animefeed/" class="btn btn-primary">Anime Feed</a>
+    <a href="/notifications/" class="btn btn-primary">📜 Notifications</a>
+    {% else %}
+    <a href="/login/" class="btn btn-primary">🔒Login</a>
+    {% endif %}
+  </div>
+  <div class="">
+    <h3><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
+        title="Emoticon Street Fighter 1"><img border="0" alt="Emoticon Street Fighter 1"
+          src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>🔥🔥🔥
+      アニメグラム へようこそ
+      🔥🔥🔥</h3>
+    <h1>こんにちは皆さん
+      {{ request.user.username }}!</h1>
+    <br />
+    <div class="card">
+      <div class="d-flex justify-content-start flex-wrap white">
+        {% for post in posts %} {% if post.image %}
+        <a href="/postdetail/{{post.id}}/">
+          <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="Feed Image"
+            style="width: 277px; height: 277px" />
+          <div style="margin: 24px 0;">
+            <h5>Anime User :{{ post.anime_user }}</h5>
+            <h5>Caption: {{ post.image_caption }}</h5>
+            <h5>On : {{ post.post_creation }}</h5>
+            <br />
+            <a href="">
+              <h1>❤️{{ post.likes}}</h1>
+            </a>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <p><a href="/">
+                <button>
+                  🏠 Home
+                </button>
+              </a>
+
+          </div>
+
+          <!-- <h5>{{ post.anime_user }}</h5>
+        <h5>{{ post.image_caption }}</h5>
+        <h5>{{ post.post_creation }}</h5>
+        <br />
+        <a href="">
+          <h1>❤️{{ post.likes}}</h1>
+        </a> -->
+          {% else %}
+          <a href="/postdetail/{{post.id}}/">
+            <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
+              style="width: 277px; height: 277px" />
+          </a>
+          {% endif %} {% endfor %}
+      </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
+
+<!-- {% for post in posts %}
 
 <div>
   <a href="/postdetail/{{post.id}}/">
@@ -22,4 +96,4 @@
   </a>
 </div>
 
-{% endfor %}
+{% endfor %} -->
