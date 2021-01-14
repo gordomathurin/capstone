@@ -4,65 +4,95 @@
 
 
 {% block content %}
+<!DOCTYPE html>
+<html>
 
-<div>
-    <a href="/">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <div>
+        <h2 style="text-align:center"> Profile Card</h2>
+        <div class="card">
+            <<img src="{{post.image.url}}" alt="post" style="width:50%">
+                <h1>❤️ {{ post.post_total }}</h1>
+                {{ post.post_total }}
+
+                <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                    <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i>
+
+                        <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
+
+                        <div style="margin: 24px 0;">
+                            <a href="#"><i class="fa fa-dribbble"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+
+                        </div>
+                        <p><a href="/">
+                                <button>
+                                    🏠 Home
+                                </button>
+                            </a>
+                        </p>
+        </div>
+        <script>
+            function myFunction(x) {
+                x.classList.toggle("fa-thumbs-down");
+                x.classList.toggle("fa-thumbs-up");
+
+            }
+        </script>
+
+
+        <!-- <img src="{{post.image.url}}" alt="post"> -->
+    </div>
+
+    <!-- <div>
         <button>
-            🏠 Home
+            {{ post.post_total }}
+        </button>
+    </div> -->
+    <!-- <a href='/like/{{ post.id }}/'>
+        <button>
+            LIKE
         </button>
     </a>
-</div>
 
-<br>
+    <a href='/dislike/{{ post.id }}/'>
+        <button>
+            DISLIKE
+        </button>
+    </a> -->
 
-<div>
-    <img src="{{post.image.url}}" alt="post">
-</div>
+    <br>
 
-<div>
-    <button>
-        {{ post.post_total }}
-    </button>
-</div>
-<a href='/like/{{ post.id }}/'>
-    <button>
-        LIKE
-    </button>
-</a>
+    <div class="card-content">
+        <div class="media">
 
-<a href='/dislike/{{ post.id }}/'>
-    <button>
-        DISLIKE
-    </button>
-</a>
+            <div class="card-content">
 
-<br>
-
-<div class="card-content">
-    <div class="media">
-
-        <div class="card-content">
-
-            {% for comment in comments %}
-            <article class="media">
-                <figure class="media-left">
-                    <p class="image is-64x64">
-                        {% if comment.user.pro.post_image %}
-                        <img src="{{ comment.post.image.url }}" alt="Placeholder image">
-                        {% else %}
-                        <img src="/media/images/1.gif" alt="Placeholder image">
-                        {% endif %}
-                    </p>
-                </figure>
-
-                <div class="media-content">
-                    <div class="content">
-                        <p>
-                            {% if comment.user.pro.first_name %}
-                            <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name }}</strong><small>
-                                @{{ comment.author }}</small>
+                {% for comment in comments %}
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            {% if comment.user.pro.post_image %}
+                            <img src="{{ comment.post.image.url }}" alt="Placeholder image">
                             {% else %}
-                            <strong>Comment</strong>
+                            <img src="/media/images/1.gif" alt="Placeholder image">
+                            {% endif %}
+                        </p>
+                    </figure>
+
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                {% if comment.user.pro.first_name %}
+                                <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name
+                                    }}</strong><small>
+                                    @{{ comment.author }}</small>
+                                {% else %}
+                                <strong>Comment</strong>
                             <div>
                                 <button>
                                     {{ comment.comment_total }}
@@ -73,7 +103,7 @@
                                     LIKE COMMENT
                                 </button>
                             </a>
-                            
+
                             <a href='/dislikecomment/{{ comment.id }}/'>
                                 <button>
                                     DISLIKE COMMENT
@@ -96,43 +126,47 @@
                             <br>
                             <!-- <strong><small>comment.date|naturaltime </small></strong> -->
                             <strong><small>{{ comment.created_on }}</small></strong>
+                            </p>
+                        </div>
+
+                </article>
+                {% endfor %}
+
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            {% if request.user.pro.post_image %}
+                            <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
+                            {% else %}
+                            <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
+                            {% endif %}
                         </p>
+                    </figure>
+                    <div class="media-content">
+                        <form method="post" action="" role="form">
+                            {% csrf_token %}
+                            <div class="field">
+                                <p class="control">
+                                    {{ form.content }}
+                                </p>
+                            </div>
+                            <div class="field">
+                                <p class="control">
+                                    <button type="submit" name="action" class="button">Post comment</button>
+                                </p>
+                            </div>
+                        </form>
                     </div>
+                </article>
+            </div>
 
-            </article>
-            {% endfor %}
 
-            <article class="media">
-                <figure class="media-left">
-                    <p class="image is-64x64">
-                        {% if request.user.pro.post_image %}
-                        <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
-                        {% else %}
-                        <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
-                        {% endif %}
-                    </p>
-                </figure>
-                <div class="media-content">
-                    <form method="post" action="" role="form">
-                        {% csrf_token %}
-                        <div class="field">
-                            <p class="control">
-                                {{ form.content }}
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control">
-                                <button type="submit" name="action" class="button">Post comment</button>
-                            </p>
-                        </div>
-                    </form>
-                </div>
-            </article>
+
         </div>
-
-
-
     </div>
-</div>
+
+    </body>
+
+</html>
 
 {% endblock %}
