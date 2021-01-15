@@ -7,19 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<div class="">
+</br>
+<!-- <div class="">
     {% if not pro %}
     <h2> ⭕ The user you are looking for does not exist</h2>
     {% else %}
-    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
-    <!-- <a href="/" class="btn btn-primary">✅{{ pro }}</a> -->
-    {% if request.user.id == pro.id %}
+    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1> -->
+<!-- <a href="/" class="btn btn-primary">✅{{ pro }}</a> -->
+<!-- {% if request.user.id == pro.id %}
     <a href='edit/' class="btn btn-primary">⌨️ Edit Anime Profile</a>
     <a href='delete/' class="btn btn-primary"
         onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌ Delete Anime
-        Profile</a>
-</div>
-{% endif %}
+        Profile</a> -->
+<!-- </div>
+{% endif %} -->
 <!-- <div class="">
     <div class="d-flex justify-content-start">
         <p class="h3"></p>
@@ -43,18 +44,19 @@
     <div class="d-flex justify-content-start flex-wrap white">
         {% if pro.avatar %}
         <img class="img-thumbnail m-auto" src="{{ pro.avatar.url }}" alt="{{pro.username}}"
-            style="width: 277px; height: 277px" />
-        <div style="margin: 24px 0;">
+            style="width: 300px; height: 270px" />
+        <div style="margin: 16px 0;">
             <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
+            <p> First Name: {{pro.first_name}}</p>
+            <p> Last Name: {{pro.last_name}}</p>
             <p>My email: {{pro.email}}</p>
             <p>About me: {{pro.about_me}}</p>
+            <!-- <p> Genre: {{pro.anime_genre}}</p> -->
             <div class="chip">
                 <img src="{{ pro.avatar.url }}" alt="Person" width="96" height="96">
-
                 ❤️
                 {{pro.username}}
                 ❤️
-
             </div>
 
             <br />
@@ -82,20 +84,29 @@
 
                 </div>
             </div>
-            <p><a href="/">
-                    <button>
-                        🏠 Home
-                    </button>
-                </a>
+            {% if request.user.id == pro.id %}
 
-                {% else %}
-                <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
-                    style="width: 150px; max-height: 200px" />
-                {% endif %}
+            <a href='edit/' class="">⌨️</a>
 
+            <a href='delete/' class=""
+                onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌</a>
+            {% endif %}
 
         </div>
-        <!-- <div class="">
+        <p><a href="/">
+                <button>
+                    🏠 Home
+                </button>
+            </a>
+
+            {% else %}
+            <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
+                style="width: 150px; max-height: 200px" />
+            {% endif %}
+
+
+    </div>
+    <!-- <div class="">
         {% if pro.avatar %}
         <img class="img-thumbnail" src="{{ pro.avatar.url }}" alt="{{ pro.username }}" width="150" max-height="200" />
         {% else %}
@@ -104,7 +115,7 @@
         {% endif %}
     </div>
     </br> -->
-        <!-- <div class="">
+    <!-- <div class="">
             <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
             <p>My email: {{pro.email}}</p>
             <p>About me: {{pro.about_me}}</p>
@@ -117,9 +128,9 @@
 
             {% endif %}
         </div> -->
-    </div>
+</div>
 
-    </body>
+</body>
 
 </html>
 

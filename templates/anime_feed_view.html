@@ -38,7 +38,7 @@
         {% for post in posts %} {% if post.image %}
         <a href="/postdetail/{{post.id}}/">
           <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="Feed Image"
-            style="width: 277px; height: 277px" />
+            style="width: 300px; height: 277px" />
           <div style="margin: 24px 0;">
             <h5>Anime User :{{ post.anime_user }}</h5>
             <h5>Caption: {{ post.image_caption }}</h5>
