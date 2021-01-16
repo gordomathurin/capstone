@@ -132,22 +132,30 @@
                                     @{{ comment.author }}</small>
                                 {% else %}
                             <div> -->
-                <h4 style="text-align:center"> 🔥🔥🔥 アニメ Comment 🔥🔥🔥</h4>
+
+
+                <h6 style="text-align:center">
+                    <div class="chip">
+                        <img src="{{ post.image.url }}" alt="Person" width="50" height="50">
+                        {{ comment.author}}❤
+                    </div> commented 🔥🔥🔥
+                </h6>
                 <div class="card">
                     <!-- <img src="{{post.image.url}}" alt="post" style="width:100%"> -->
-                    <p>{{ comment.author}} commented 👉</p>
-                    <p>{{ comment.content }} ❗</p>
+                    <!-- <p>{{ comment.author}} commented 👇👉</p> -->
+
+                    <p> 👉 " {{ comment.content }} "</p>
                     <p> 👉 {{ comment.comment_total }} ❤️ <strong><small> {{ comment.created_on }}</small></strong></p>
                     <!-- <h3>❤️
                         {{ comment.comment_total }}
                     </h3> -->
 
-                    <p><a href='/editcomment/{{ comment.id }}/'>⌨️</a>
+                    <p>👉 <a href='/editcomment/{{ comment.id }}/'>⌨️</a>
                         <a href='/deletecomment/{{ comment.id }}/'>❌</a>
                     </p>
 
                     <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
-
+                    <p>🙏 ありがとうございました {{ post.anime_user }}</p>
                     <div style="margin: 24px 0;">
                         <a href='/likecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
                                 class="fa fa-thumbs-up">{{ comment.likes }}</i>
@@ -157,6 +165,7 @@
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-facebook"></i></a>
+
 
                     </div>
                 </div>
@@ -235,7 +244,11 @@
 
     </div>
     </div>
-
+    <div>
+        <h6 style="text-align:center">
+            <i>&copy;AnimeGram enthusiast since: {{ request.user.created_on }}</i>
+        </h6>
+    </div>
 </body>
 
 </html>
