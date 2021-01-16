@@ -1,4 +1,4 @@
-nav {
+/* nav {
     display: flex;
     flex-wrap: wrap;
     min-height: 40px;
@@ -9,4 +9,12 @@ nav {
   a {
     color: rgb(247, 238, 238);
     padding: 3%;
+  } */
+
+  body {
+    background: url('../../media/images/animehome.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
   }

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<!-- TODO 2: Repeat todo 1 -->
 <!DOCTYPE html>
 <html>
 
@@ -9,36 +10,43 @@
 </head>
 
 <body>
-    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
+    <div class="">
+        <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3258/" target="_blank"
+            title="Emoticon Mortal Kombat 23"><img border="0" style="width: 30px;" alt="Emoticon Mortal Kombat 23"
+                src="https://www.messentools.com/images/emoticones/mortal-kombat/www.MessenTools.com-games-mortal-kombat-022.gif"></a>
+        &nbsp;🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        <a href="/"> 🏛 </a>
+
+        <!-- <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1> -->
 
 
 
-    <div class="container-fluid">
-        <h2> ⭕ Notifications</h2>
+        <div class="container-fluid">
+            <h2> ⭕ Notifications</h2>
 
-        <br>
-        {% for alert in notifications %}
+            <br>
+            {% for alert in notifications %}
 
-        <ul class="collection">
-            <li class="collection-item avatar">
-                <img src="{{ alert.publisher.avatar.url }}" alt="" class="circle">
-                <!-- <span class="title">{{ alert.publisher.username }}</span> -->
-                <!-- print({{alert.publisher.username}})
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <img src="{{ alert.publisher.avatar.url }}" alt="" class="circle">
+                    <!-- <span class="title">{{ alert.publisher.username }}</span> -->
+                    <!-- print({{alert.publisher.username}})
             print({{alert.count}}) -->
 
-                <!-- <h3>✔️<a href="/profile/{{ alert.anime_user.id }}/">{{ alert.anime_user }}</a></h3> -->
+                    <!-- <h3>✔️<a href="/profile/{{ alert.anime_user.id }}/">{{ alert.anime_user }}</a></h3> -->
 
-                <p>{{ alert.date }} <br>
-                    <span class="title">{{ alert.publisher.username }}</span>
-                    {{ alert.follow_message }}
+                    <p>{{ alert.date }} <br>
+                        <span class="title">{{ alert.publisher.username }}</span>
+                        {{ alert.follow_message }}
 
-                </p>
-                <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
-            </li>
-        </ul>
-        {% endfor %}
+                    </p>
+                    <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                </li>
+            </ul>
+            {% endfor %}
 
-    </div>
+        </div>
 
 
 

@@ -1,20 +1,35 @@
-{% extends "base.html" %} {% block content %}
-</br>
-<div class="">
-    <h2><a href="/">🏛 Home</a> 👨‍💻‍</h2>
-    <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1655/" target="_blank"
-        title="Emoticon Dee Jay - Street Fighter"><img border="0" alt="Emoticon Dee Jay - Street Fighter"
-            src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-08.gif"></a>&nbsp;🔥🔥🔥🔥🔥🔥🔥
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    </br>
+    <div class="">
+        <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1655/" target="_blank"
+            title="Emoticon Dee Jay - Street Fighter"><img border="0" style="width: 35px;"
+                alt="Emoticon Dee Jay - Street Fighter"
+                src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-08.gif"></a>&nbsp;🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        <a href="/"> 🏛 </a>
 
 
 
 
 
 
-    <form method="POST" action="" class="" enctype="multipart/form-data" />
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit">Save Profile</input>
-    </form>
-</div>
+        <form method="POST" action="" class="" enctype="multipart/form-data" />
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">Save Profile</input>
+        </form>
+    </div>
+
+</body>
+
+</html>
 {% endblock %}
