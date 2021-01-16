@@ -9,64 +9,77 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
+<body>
     <div>
-        <h2 style="text-align:center"> Profile Card</h2>
+        <h4 style="text-align:center"> 🔥🔥🔥 アニメ Card 🔥🔥🔥</h4>
         <div class="card">
-            <img src="{{post.image.url}}" alt="post" style="width:90%">
-            <h1>❤️ {{ post.post_total }}</h1>
-            {{ post.post_total }}
+            <img src="{{post.image.url}}" alt="post" style="width:100%">
+            <!-- <h1>❤️ {{ post.post_total }}</h1>
+            {{ post.post_total }} -->
 
-            <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-                <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i>
+            <!-- <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i> -->
 
-                    <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
+            <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
 
-                    <div style="margin: 24px 0;">
+            <div style="margin: 24px 0;">
+                <a href="/">🏠</a>
+                <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                    <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i>
+
                         <a href="#"><i class="fa fa-dribbble"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-linkedin"></i></a>
                         <a href="#"><i class="fa fa-facebook"></i></a>
+                        <h5>❤️ {{ post.post_total}} Anime member :{{ post.anime_user }}</h5>
+                        <h5>📝 Caption: {{ post.image_caption }}</h5>
+                        <h5>📅 Uploaded : {{ post.post_creation }}</h5>
+                        <h1 onclick="myFunction2()"> 🃏 </h1>
+            </div>
 
-                    </div>
-                    <p><a href="/">
-                            <button>
-                                🏠 Home
-                            </button>
-                        </a>
+            <!-- <p><a href="/">
+                    <button>
+                        🏠 Home
+                    </button>
+                </a>
+            </p> -->
+            <article class="media">
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        {% if request.user.pro.post_image %}
+                        <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
+                        {% else %}
+                        <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
+                        {% endif %}
                     </p>
-                    <article class="media">
-                        <figure class="media-left">
-                            <p class="image is-64x64">
-                                {% if request.user.pro.post_image %}
-                                <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
-                                {% else %}
-                                <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
-                                {% endif %}
+                </figure>
+                <div class="media-content">
+                    <form method="post" action="" role="form">
+                        {% csrf_token %}
+                        <div class="field">
+                            <p class="control">
+                                {{ form.content }}
                             </p>
-                        </figure>
-                        <div class="media-content">
-                            <form method="post" action="" role="form">
-                                {% csrf_token %}
-                                <div class="field">
-                                    <p class="control">
-                                        {{ form.content }}
-                                    </p>
-                                </div>
-                                <div class="field">
-                                    <p class="control">
-                                        <button type="submit" name="action" class="button">Post comment</button>
-                                    </p>
-                                </div>
-                            </form>
                         </div>
-                    </article>
+                        <div class="field">
+                            <p class="control">
+                                <button type="submit" name="action" class="button">Post comment</button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </article>
         </div>
         <script>
             function myFunction(x) {
                 x.classList.toggle("fa-thumbs-down");
                 x.classList.toggle("fa-thumbs-up");
 
+            }
+            function myFunction2() {
+                location.replace("https://anidb.net/anime/schedule")
             }
         </script>
 
@@ -119,35 +132,33 @@
                                     @{{ comment.author }}</small>
                                 {% else %}
                             <div> -->
-                <h2 style="text-align:center"> Comment</h2>
+                <h4 style="text-align:center"> 🔥🔥🔥 アニメ Comment 🔥🔥🔥</h4>
                 <div class="card">
-                    <img src="{{post.image.url}}" alt="post" style="width:100%">
-                    <h1>❤️
+                    <!-- <img src="{{post.image.url}}" alt="post" style="width:100%"> -->
+                    <p>{{ comment.author}} commented 👉</p>
+                    <p>{{ comment.content }} ❗</p>
+                    <p> 👉 {{ comment.comment_total }} ❤️ <strong><small> {{ comment.created_on }}</small></strong></p>
+                    <!-- <h3>❤️
                         {{ comment.comment_total }}
+                    </h3> -->
 
-                    </h1>
+                    <p><a href='/editcomment/{{ comment.id }}/'>⌨️</a>
+                        <a href='/deletecomment/{{ comment.id }}/'>❌</a>
+                    </p>
 
+                    <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
 
-                    <a href='/likecomment/{{ comment.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-                        <a href='/dislikecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
-                                class="fa fa-thumbs-down"></i>
-                            <p><a href='/editcomment/{{ comment.id }}/'><button>Edit</button></a>
-                            </p>
-                            <p> <a href='/deletecomment/{{ comment.id }}/'><button>Delete</button></a>
-                            </p>
-                            {{ comment.content }}
-                            <strong><small>{{ comment.created_on }}</small></strong>
-
-
-                            <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
-
-                            <div style="margin: 24px 0;">
+                    <div style="margin: 24px 0;">
+                        <a href='/likecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
+                                class="fa fa-thumbs-up">{{ comment.likes }}</i>
+                            <a href='/dislikecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
+                                    class="fa fa-thumbs-down">{{ comment.dislike }}</i>
                                 <a href="#"><i class="fa fa-dribbble"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-facebook"></i></a>
 
-                            </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -225,7 +236,7 @@
     </div>
     </div>
 
-    </body>
+</body>
 
 </html>
 

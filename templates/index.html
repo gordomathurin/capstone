@@ -31,11 +31,11 @@
     </div>
 
     <div class="">
-        <h3><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
-                title="Emoticon Street Fighter 1"><img border="0" alt="Emoticon Street Fighter 1"
-                    src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>🔥🔥🔥
+
+
+        <!-- 🔥🔥🔥
             アニメグラム へようこそ
-            🔥🔥🔥</h3>
+            🔥🔥🔥</h3> -->
 
         <!-- アニメグラム へようこそ -->
 
@@ -49,17 +49,28 @@
 
 
     <!-- {% for post in posts%}
-<a href="/postdetail/{{post.id}}/">
-    <img src="{{ post.image.url }}" alt="image postings">
-</a>
+        <a href="/postdetail/{{post.id}}/">
+            <img src="{{ post.image.url }}" alt="image postings">
+        </a>
+        
+        {{post.image_caption}}
+        
+        {% endfor %} -->
 
-{{post.image_caption}}
-
-{% endfor %} -->
-
-    <br />
     <div class="container">
         <div class="d-flex justify-content-start flex-wrap white">
+            <!-- <h1>こ<br />ん<br />ち<br />は<br />皆<br />さ<br />ん</h1> -->
+
+            <h3 class="text-center pt-3"><a
+                    href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/" target="_blank"
+                    title="Emoticon Street Fighter 1"><img border="0" style="width: 18px;"
+                        alt="Emoticon Street Fighter 1"
+                        src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>
+                🔥🔥🔥 アニメグラム へようこそ 🔥🔥🔥 </h3>
+            <h1>こ アニメグラム へようこそ <br />ん アニメグラム へようこそ<br />ち アニメグラム へようこそ<br />は アニメグラム へようこそ<br />皆 アニメグラム へようこそ<br />さ
+                アニメグラム へようこそ<br />ん アニメグラム へようこそ</h1>
+
+
             {% for post in posts %} {% if post.image %}
             <a href="/postdetail/{{post.id}}/">
                 <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="{{ post.image_caption }}"

@@ -40,24 +40,30 @@
           <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="Feed Image"
             style="width: 300px; height: 277px" />
           <div style="margin: 24px 0;">
-            <h5>Anime User :{{ post.anime_user }}</h5>
-            <h5>Caption: {{ post.image_caption }}</h5>
-            <h5>On : {{ post.post_creation }}</h5>
-            <br />
-            <a href="">
-              <h1>❤️{{ post.likes}}</h1>
-            </a>
+            <h5>❤️ {{ post.likes}} Anime member :{{ post.anime_user }}</h5>
+            <h5>📝 Caption: {{ post.image_caption }}</h5>
+            <h5>📅 Uploaded : {{ post.post_creation }}</h5>
+
             <a href="#"><i class="fa fa-dribbble"></i></a>
             <a href="#"><i class="fa fa-twitter"></i></a>
             <a href="#"><i class="fa fa-linkedin"></i></a>
             <a href="#"><i class="fa fa-facebook"></i></a>
+            <h1 onclick="myFunction()">📺 </h1>
+
             <p><a href="/">
                 <button>
                   🏠 Home
                 </button>
-              </a>
+              </a></p>
+            <!-- <h3 onclick="myFunction()">📺 </h3> -->
+
 
           </div>
+          <script>
+            function myFunction() {
+              location.replace("https://www.crunchyroll.com/videos/anime")
+            }
+          </script>
 
           <!-- <h5>{{ post.anime_user }}</h5>
         <h5>{{ post.image_caption }}</h5>

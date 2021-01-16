@@ -91,7 +91,7 @@ class FollowView(LoginRequiredMixin, View):
         user_to_follow = AnimeUser.objects.get(id=user_id)
         current_anime_user.follower.add(user_to_follow)
         Notification.objects.create(
-            follow_message = "This user is following you",
+            follow_message = "started following you ❤️",
             notify = user_to_follow,
             publisher = current_anime_user
         )
