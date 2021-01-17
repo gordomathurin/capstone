@@ -31,6 +31,19 @@
     width: 120px;
     padding-right: 10px;
   }
+  .chipcontainer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 50px ;
+  }
+
+  .username2 {
+    margin-top:-5px ;
+    /* border: 5px solid red; */
+    width: 120px;
+    padding-right: 20px;
+  }
 
   .test{
     width: 325px;

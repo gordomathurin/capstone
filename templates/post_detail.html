@@ -25,11 +25,12 @@
             <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
 
             <div style="margin: 24px 0;">
-                <a href="/">🏠</a>
                 <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
                     <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i>
 
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
+
+
+                        <a href="/">🏠</a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-linkedin"></i></a>
                         <a href="#"><i class="fa fa-facebook"></i></a>
@@ -135,17 +136,20 @@
 
 
                 <h6 style="text-align:center">
-                    <div class="chip">
-                        <img src="{{ post.image.url }}" alt="Person" width="50" height="50">
-                        {{ comment.author}}❤
-                    </div> commented 🔥🔥🔥
+                    <div class="chipcontainer2">
+                        <div class="chip">
+                            <img src="{{ post.image.url }}" alt="Person" width="50" height="50">
+                            <div class="username2">{{ comment.author}}❤
+                            </div>
+                        </div>
+                        <!-- commented 🔥🔥🔥 -->
                 </h6>
                 <div class="card">
                     <!-- <img src="{{post.image.url}}" alt="post" style="width:100%"> -->
                     <!-- <p>{{ comment.author}} commented 👇👉</p> -->
 
-                    <p> 👉 " {{ comment.content }} "</p>
-                    <p> 👉 {{ comment.comment_total }} ❤️ <strong><small> {{ comment.created_on }}</small></strong></p>
+                    <h5> 💬 {{ comment.content }} ❕</h5>
+                    <p> 🔔 {{ comment.comment_total }} ❤️ <strong><small> {{ comment.created_on }}</small></strong></p>
                     <!-- <h3>❤️
                         {{ comment.comment_total }}
                     </h3> -->
@@ -161,7 +165,8 @@
                                 class="fa fa-thumbs-up">{{ comment.likes }}</i>
                             <a href='/dislikecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
                                     class="fa fa-thumbs-down">{{ comment.dislike }}</i>
-                                <a href="#"><i class="fa fa-dribbble"></i></a>
+                                <!-- <a href="#"><i class="fa fa-dribbble"></i></a> -->
+                                <a href="/">🏠</a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <a href="#"><i class="fa fa-facebook"></i></a>
