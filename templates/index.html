@@ -59,7 +59,7 @@
         
         {% endfor %} -->
 
-    <!-- <h1>こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1> -->
+
 
 
     <div class="container">
@@ -69,8 +69,11 @@
                 target="_blank" title="Emoticon Street Fighter 1"><img border="0" style="width: 18px;"
                     alt="Emoticon Street Fighter 1"
                     src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>
-            🔥🔥🔥 アニメグラム へようこそ @ {{ request.user.username }} 🔥🔥🔥 </h3>
+            <strong>🔥🔥🔥 アニメグラム へようこそ @ {{ request.user.username }} 🔥🔥🔥</strong>
+        </h3>
 
+        <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
+        <h1 class="bye">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
 
         {% for post in posts %} {% if post.image %}
         <a href="/postdetail/{{post.id}}/">
@@ -105,7 +108,7 @@
 
     <div>
         <h6 style="text-align:center">
-            <i>&copy;AnimeGram enthusiast since: {{ request.user.created_on }}</i>
+            <i><strong>&copy;AnimeGram enthusiast since: {{ request.user.created_on }}</strong></i>
         </h6>
     </div>
 </body>

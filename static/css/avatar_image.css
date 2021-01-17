@@ -1,20 +1,38 @@
 .chip {
     display: inline-block;
     padding: 0 25px;
-    height: 50px;
+    height: 40px;
     font-size: 16px;
     line-height: 50px;
     border-radius: 25px;
-    background-color: #276b80b2;
-    /* background-color: #f1f1f1; */
+    /* background-color: #276b80b2; */
+    background-color: #f1f1f1ee;
 
   }
   
   .chip img {
     float: left;
     margin: 0 10px 0 -25px;
-    height: 50px;
+    height: 40px;
     width: 50px;
     border-radius: 50%;
   }
   
+  .chipcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 50px ;
+  }
+
+  .username {
+    margin-top:-5px ;
+    /* border: 1px solid red; */
+    width: 120px;
+    padding-right: 10px;
+  }
+
+  .test{
+    width: 325px;
+    /* border: 1px solid  red; */
+  }

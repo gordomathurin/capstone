@@ -46,22 +46,24 @@
 
     </div>
 </div> -->
-    <div class="card">
+    <div class="card test">
         <div class="d-flex justify-content-start flex-wrap white">
             {% if pro.avatar %}
             <h5 style="text-align:center">
-                <div class="chip">
-                    <img src="{{ pro.avatar.url }}" alt="Person" width="20" height="20">
-                    {{ pro.username }}❤
-                </div>🔥🔥🔥🔥 アニメ カード
+                <div class="chipcontainer">
+                    <div class="chip">
+                        <img src="{{ pro.avatar.url }}" alt="Person" width="20" height="20">
+                        <div class="username">{{ pro.username }}❤</div>
+                    </div>🔥🔥🔥アニメ カード
+                </div>
 
                 <img class="img-thumbnail m-auto" src="{{ pro.avatar.url }}" alt="{{pro.username}}"
-                    style="width: 300px; height: 270px" />
+                    style="width: 325px; height: 270px" />
                 <div style="margin: 16px 0;">
-                    <p> ✔️First Name: {{pro.first_name}}</p>
-                    <p> ✔️Last Name: {{pro.last_name}}</p>
-                    <p> 📧 email: {{pro.email}}</p>
-                    <p> 🎴 About me: {{pro.about_me}}</p>
+                    <p> <strong>✔️First Name: {{pro.first_name}}</strong></p>
+                    <p> <strong>✔️Last Name: {{pro.last_name}}</strong></p>
+                    <p> <strong>📧 email: {{pro.email}}</strong></p>
+                    <p><strong>🎴 About me: </strong>{{pro.about_me}}</p>
                     <!-- <p> Genre: {{pro.anime_genre}}</p> -->
                     <!-- <div class="chip">
                     <img src="{{ pro.avatar.url }}" alt="Person" width="96" height="96">
@@ -88,13 +90,13 @@
                             {% if request.user.id != pro.id %}
                             {% if pro in user_following %}
                             <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
-                                    class="btn btn-primary mx-auto btn-lg ">Unfollow</a></p>
+                                    class="btn btn-primary mx-auto btn-lg "> 👨‍💻 Unfollow</a></p>
                             {% else %}
                             <h1>
 
                             </h1>
                             <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
-                                    class="btn btn-primary mx-auto btn-lg ">Follow</a></p>
+                                    class="btn btn-primary mx-auto btn-lg "> 👨‍💻 Follow</a></p>
                             {% endif %}
                             {% endif %}
 
@@ -109,7 +111,7 @@
                     {% endif %}
 
                 </div>
-                <p> ©️ アニメ enthusiast since: {{ pro.created_on }}</p>
+                <p><strong> ©️ アニメ enthusiast since: {{ pro.created_on }}</strong></p>
                 <p><a href="/">
                         <button>
                             🏠 Home
