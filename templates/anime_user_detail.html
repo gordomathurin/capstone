@@ -58,31 +58,34 @@
                 </div>
 
                 <img class="img-thumbnail m-auto" src="{{ pro.avatar.url }}" alt="{{pro.username}}"
-                    style="width: 325px; height: 270px" />
+                    style="width: 370px; height: 250px" />
                 <div style="margin: 16px 0;">
                     <p> <strong>✔️First Name: {{pro.first_name}}</strong></p>
                     <p> <strong>✔️Last Name: {{pro.last_name}}</strong></p>
                     <p> <strong>📧 email: {{pro.email}}</strong></p>
-                    <p><strong>🎴 About me: </strong>{{pro.about_me}}</p>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <br /><br />
+                    {% if request.user.id == pro.id %}
+                    <div class="detail">
+                        <a href='edit/' class="">⌨️</a>
+
+                        <a href='delete/' class=""
+                            onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌</a>
+                    </div>
+                    {% endif %}
+                    <br />
+                    <!-- <p class="aboutme">🎴 About me 👁️‍🗨️ {{pro.about_me}}</p> -->
                     <!-- <p> Genre: {{pro.anime_genre}}</p> -->
-                    <!-- <div class="chip">
-                    <img src="{{ pro.avatar.url }}" alt="Person" width="96" height="96">
-                    ❤️
-                    {{pro.username}}
-                    ❤️
-                </div> -->
 
                     <br />
                     </a>
 
-                    <!-- <a href="#"><i class="fa fa-dribbble"></i></a> -->
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-google-plus btn-google-plus"></i></a>
+                    <!-- <a href="#"><i class="fa fa-google-plus btn-google-plus"></i></a>
                     <a href="#"><i class="fa fa-pinterest btn-pinterest"></i></a>
                     <a href="#"><i class="fa fa-reddit btn-reddit"></i></a>
-                    <a href="#"><i class="fa fa-dropbox btn-dropbox"></i></a>
+                    <a href="#"><i class="fa fa-dropbox btn-dropbox"></i></a> -->
                     <div class="">
                         <div class="d-flex justify-content-start">
                             <p class="h3"></p>
@@ -102,16 +105,19 @@
 
                         </div>
                     </div>
-                    {% if request.user.id == pro.id %}
-
+                    <!-- {% if request.user.id == pro.id %}
+<div class="detail">
                     <a href='edit/' class="">⌨️</a>
 
                     <a href='delete/' class=""
                         onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌</a>
-                    {% endif %}
+                        </div>
+                    {% endif %} -->
 
                 </div>
                 <p><strong> ©️ アニメ enthusiast since: {{ pro.created_on }}</strong></p>
+                <p class="aboutme">🎴 About me: 👁️‍🗨️ {{pro.about_me}}</p>
+
                 <p><a href="/">
                         <button>
                             🏠 Home
