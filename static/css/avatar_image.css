@@ -90,3 +90,11 @@
     width: 325px;
     /* border: 1px solid  red; */
   }
+
+  .fonts{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  .fonts1{
+    font-family:fantasy;
+  }
