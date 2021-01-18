@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
+from django.shortcuts import render, HttpResponseRedirect, reverse, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, View
 from anime_user.models import AnimeUser
@@ -37,17 +37,19 @@ def profile_view(request, username):
 
 @login_required
 def profile_edit_view(request, username):
-    user = AnimeUser.objects.filter(username=username).first()
-    if request.method == "POST":
-        form = EditProfileForm(request.POST)
-        if form.is_valid():
-            data = form.cleaned_data
-            user.about_me = data.get("about_me")
-            user.email = data.get("email")
-            if "avatar" in request.FILES:
-                user.avatar = request.FILES["avatar"]
-            user.save()
-            return HttpResponseRedirect(reverse("homepage"))
+    edit_profile = get_object_or_404(AnimeUser, username=username)
+    if edit_profile.username == request.user.username:
+        if request.method == "POST":
+            form = EditProfileForm(request.POST, request.FILES, instance=edit_profile)
+            if form.is_valid():
+                edit_profile= form.save(commit=False)
+                edit_profile.save()
+                return redirect ("profile", username)
+        else:
+            form = EditProfileForm(instance=edit_profile)
+        return render(request, 'edit_anime_pro.html', {'form': form})
+        
+    else :return HttpResponseForbidden("⭕ You do not have permission to edit this anime post❗")
 
     form = EditProfileForm()
     return render(request, "edit_anime_pro.html", {"form": form})
@@ -58,15 +60,15 @@ def delete_user(request, username):
     A_user = AnimeUser.objects.get(username=username)
     if A_user.is_staff:
         return HttpResponseForbidden(
-            " ⭕ Staff anime profiles cannot be deleted from the browser. Plaese See an Admin"
+            " ⭕ Staff anime profiles cannot be deleted from the browser. Please See an Admin @ animeprofile.does_not_exist_yet❗"
         )
     elif A_user.username == request.user.username:
         A_user.delete()
-        messages.success(request, "⭕ The user has been deleted")
+        messages.success(request, "⭕ The Anime user has been deleted❗")
         return redirect("homepage")
     else:
         return HttpResponseForbidden(
-            " ⭕ You do not have permission to delete this user"
+            " ⭕ You do not have permission to delete this Anime user❗"
         )
 
 
