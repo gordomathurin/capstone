@@ -50,10 +50,10 @@
         <div class="d-flex justify-content-start flex-wrap white">
             {% if pro.avatar %}
             <h5 style="text-align:center">
-                <div class="chipcontainer">
-                    <div class="chip">
+                <div class="chipcontainerprofile">
+                    <div class="chipprofile">
                         <img src="{{ pro.avatar.url }}" alt="Person" width="20" height="20">
-                        <div class="username">{{ pro.username }}❤</div>
+                        <div class="usernameprofile">{{ pro.username }} ❤</div>
                     </div>🔥🔥🔥アニメ カード
                 </div>
 
@@ -92,14 +92,13 @@
 
                             {% if request.user.id != pro.id %}
                             {% if pro in user_following %}
-                            <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
-                                    class="btn btn-primary mx-auto btn-lg "> 👨‍💻 Unfollow</a></p>
+                            <p class="unfollow"><a href="/unfollow/{{ pro.id }}/" type="button" class="">❌Unfollow</a>
+                            </p>
                             {% else %}
                             <h1>
 
                             </h1>
-                            <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
-                                    class="btn btn-primary mx-auto btn-lg "> 👨‍💻 Follow</a></p>
+                            <p class="follow"><a href="/follow/{{ pro.id }}" type="button" class=""> ✔️ Follow</a></p>
                             {% endif %}
                             {% endif %}
 

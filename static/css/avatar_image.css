@@ -85,7 +85,46 @@
 
   }
 
+  .chipprofile {
+    display: inline-block;
+    padding: 0 40px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    /* background-color: #276b80b2; */
+    /* background-color: #f1f1f1ee; */
+    /* border: 1px solid red; */
+    background-color: whitesmoke;
 
+
+  }
+  
+  .chipprofile img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 50px;
+    border-radius: 50%;
+    left: 538px;
+    position: absolute;
+
+  }
+  
+  .chipcontainerprofile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 50px ;
+  }
+
+
+.usernameprofile {
+    margin-top:-5px ;
+    /* border: 1px solid red; */
+    width: 120px;
+    padding-right: 40px;
+  }
   .test{
     width: 370px;
     /* border: 1px solid  red; */
@@ -115,9 +154,47 @@
   .detail{
     border-radius: 20px;
     background-color: #851b732c;
-    border: 1.5px solid rgba(126, 83, 228, 0.808);
-    width: 105px;
+    border: 2px solid rgba(126, 83, 228, 0.808);
+    width: 115px;
     display: inline-block;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 630px;
+    position: absolute;
+    margin-top:-5px ;
+  }
+  .follow{
+    border-radius: 20px;
+    background-color: #1822e0d5;
+    border: 2px solid rgba(126, 83, 228, 0.808);
+    width: 115px;
+    display: inline-block;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 630px;
+    position: absolute;
+    margin-top:-60px ;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
+  }
+
+  .unfollow{
+    border-radius: 20px;
+    background-color: #1822e0d5;
+    border: 2px solid rgba(126, 83, 228, 0.808);
+    width: 142px;
+    display: inline-block;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 615px;
+    position: absolute;
+    margin-top:-60px ;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
   }
