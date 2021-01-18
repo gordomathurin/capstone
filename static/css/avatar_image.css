@@ -31,6 +31,56 @@
     width: 120px;
     padding-right: 10px;
   }
+  
+  .collection {
+    display: inline-block;
+    padding: 0 30px;
+    height: 60px;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 25px;
+    /* background-color: #276b80b2; */
+    background-color: #f1f1f1ee;
+    border: 5px solid black;
+
+
+  }
+
+  .collection-item avatar img{
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 10px solid red;
+  }
+
+  .circle img{
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 10px solid rgb(0, 255, 55);
+  }
+  
+  /* .notify img{
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 40px;
+    width: 50px;
+    border-radius: 50%;
+    border: 10px solid red;
+
+  } */
+  
+  /* .collection-item avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 50px ;
+  } */
+
   .chipcontainer2 {
     display: flex;
     justify-content: center;

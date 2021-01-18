@@ -15,13 +15,13 @@
 
         <a href="javascript:history.go(-1)">👽</a>&nbsp;
         <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
-        <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
+        <!-- <a href="/signup/" class="btn btn-primary">🖋️Signup</a> -->
         {% if request.user.is_authenticated %}
-        <a href="/logout/" class="btn btn-primary">🔓Logout</a>
-        <a href="/profile/{{request.user.username}}" class="btn btn-primary">👨‍Profile</a>
-        <a href="/newpost/" class="btn btn-primary">Add Post</a>
-        <a href="/animefeed/" class="btn btn-primary">Anime Feed</a>
-        <a href="/notifications/" class="btn btn-primary">📜 Notifications</a>
+        <a href="/logout/" class="btn btn-primary">🐱‍🚀Logout</a>
+        <a href="/profile/{{request.user.username}}" class="btn btn-primary">🐱‍💻Profile</a>
+        <a href="/newpost/" class="btn btn-primary">🐱‍🏍Add Post</a>
+        <a href="/animefeed/" class="btn btn-primary">🐱‍👤Anime Feed</a>
+        <a href="/notifications/" class="btn btn-primary">🔔Notifications</a>
 
 
         {% else %}
