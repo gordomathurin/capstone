@@ -36,11 +36,7 @@
         </div>
       </div>
     </div>
-    <!-- <strong>🔥🔥 アニメグラム へようこそ @ {{ request.user.username }}さん 🔥🔥</strong> -->
   </h6>
-  <!-- <h1>こんにちは皆さん
-      {{ request.user.username }}!</h1> -->
-  <!-- <br /> -->
   <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん<br />°</h1>
   <h1 class="bye"> 素<br />晴<br />ら<br />し<br />い<br />、<br />始<br />め<br />ま<br />し<br />ょ<br />う<br />°</h1>
 
@@ -68,7 +64,14 @@
 
           <p><a href="/">
               <button>
-                🏠 Home
+                🏠
+                <a href="/profile/{{request.user.username}}">🐱‍💻</a>
+                <a href="/newpost/">🐱‍🏍</a>
+                <a href="javascript:history.go(-1)">㊗️</a>
+                <a href="/notifications/">🔔</a><br />
+
+
+
               </button>
             </a></p>
         </div>
@@ -90,4 +93,3 @@
 
 </html>
 {% endblock %}
-

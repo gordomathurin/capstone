@@ -36,15 +36,6 @@
 
             <!-- Todo: You might need to delte the placeholder if it's not working -->
             <article class="media">
-                <!-- <figure class="media-left">
-                    <p class="image is-64x64">
-                        {% if request.user.pro.post_image %}
-                        <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
-                        {% else %}
-                        <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
-                        {% endif %}
-                    </p>
-                </figure> -->
                 <div class="media-content">
                     <form method="post" action="" role="form">
                         {% csrf_token %}
@@ -72,28 +63,7 @@
                 location.replace("https://anidb.net/anime/schedule")
             }
         </script>
-
-
-        <!-- <img src="{{post.image.url}}" alt="post"> -->
     </div>
-
-    <!-- <div>
-        <button>
-            {{ post.post_total }}
-        </button>
-    </div> -->
-    <!-- <a href='/like/{{ post.id }}/'>
-        <button>
-            LIKE
-        </button>
-    </a>
-
-    <a href='/dislike/{{ post.id }}/'>
-        <button>
-            DISLIKE
-        </button>
-    </a> -->
-
     <br>
 
     <div class="card-content">
@@ -102,28 +72,6 @@
             <div class="card-content">
 
                 {% for comment in comments %}
-                <!-- <article class="media">
-                    <figure class="media-left">
-                        <p class="image is-64x64">
-                            {% if comment.user.pro.post_image %}
-                            <img src="{{ comment.post.image.url }}" alt="Placeholder image">
-                            {% else %}
-                            <img src="/media/images/1.gif" alt="Placeholder image">
-                            {% endif %}
-                        </p>
-                    </figure>
-
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                {% if comment.user.pro.first_name %}
-                                <strong>{{ comment.user.pro.first_name }} {{ comment.user.pro.last_name
-                                    }}</strong><small>
-                                    @{{ comment.author }}</small>
-                                {% else %}
-                            <div> -->
-
-
                 <h6 style="text-align:center">
                     <div class="chipcontainer2">
                         <div class="chip">
@@ -131,30 +79,20 @@
                             <div class="username2">{{ comment.author}}❤
                             </div>
                         </div>
-                        <!-- commented 🔥🔥🔥 -->
                 </h6>
                 <div class="card">
-                    <!-- <img src="{{post.image.url}}" alt="post" style="width:100%"> -->
-                    <!-- <p>{{ comment.author}} commented 👇👉</p> -->
-
                     <h5> 💬 {{ comment.content }} ❕</h5>
                     <p> 🔔 {{ comment.comment_total }} ❤️ <strong><small> {{ comment.created_on }}</small></strong></p>
-                    <!-- <h3>❤️
-                        {{ comment.comment_total }}
-                    </h3> -->
-
                     <p>👉 <a href='/editcomment/{{ comment.id }}/'>⌨️</a>
                         <a href='/deletecomment/{{ comment.id }}/'>❌</a>
                     </p>
 
-                    <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
                     <p>🙏 ありがとうございました {{ post.anime_user }}</p>
                     <div style="margin: 24px 0;">
                         <a href='/likecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
-                                class="fa fa-thumbs-up">{{ comment.likes }}</i>
+                                class="fa fa-thumbs-up"></i>
                             <a href='/dislikecomment/{{ comment.id }}/'><i onclick="myFunction(this)"
-                                    class="fa fa-thumbs-down">{{ comment.dislike }}</i>
-                                <!-- <a href="#"><i class="fa fa-dribbble"></i></a> -->
+                                    class="fa fa-thumbs-down"></i>
                                 <a href="/">🏠</a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -166,76 +104,13 @@
             </div>
         </div>
     </div>
-    <!-- <strong>Comment</strong>
-                    <div>
-                        <button>
-                            {{ comment.comment_total }}
-                        </button>
-                    </div>
-                    <a href='/likecomment/{{ comment.id }}/'>
-                        <button>
-                            LIKE COMMENT
-                        </button>
-                    </a>
 
-                    <a href='/dislikecomment/{{ comment.id }}/'>
-                        <button>
-                            DISLIKE COMMENT
-                        </button>
-                    </a> -->
-    <!-- <a href='/editcomment/{{ comment.id }}/'>
-                        <button>
-                            EDIT COMMENT
-                        </button>
-                    </a>
-
-                    <a href='/deletecomment/{{ comment.id }}/'>
-                        <button>
-                            DELETE COMMENT
-                        </button>
-                    </a> -->
-    <!-- {% endif %} -->
     <br>
-    <!-- {{ comment.content }} -->
     <br>
-    <!-- <strong><small>comment.date|naturaltime </small></strong> -->
-    <!-- <strong><small>{{ comment.created_on }}</small></strong> -->
-    <!-- </p> -->
-    <!-- </div> -->
-
-    <!-- </article> -->
     {% endfor %}
 
-    <!-- <article class="media">
-        <figure class="media-left">
-            <p class="image is-64x64">
-                {% if request.user.pro.post_image %}
-                <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
-                {% else %}
-                <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
-                {% endif %}
-            </p>
-        </figure>
-        <div class="media-content">
-            <form method="post" action="" role="form">
-                {% csrf_token %}
-                <div class="field">
-                    <p class="control">
-                        {{ form.content }}
-                    </p>
-                </div>
-                <div class="field">
-                    <p class="control">
-                        <button type="submit" name="action" class="button">Post comment</button>
-                    </p>
-                </div>
-            </form>
-        </div>
-    </article> -->
+
     </div>
-
-
-
     </div>
     </div>
     <div>
