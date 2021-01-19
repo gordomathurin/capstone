@@ -170,3 +170,20 @@
   margin-left: auto;
 
 } */
+
+.postimage {
+  /* border: 1px solid red; */
+  width: 35px;
+  position: absolute;
+  top: 180px;
+  left: 60px;
+  font-size: 35px;
+}
+
+.postimageright {
+  width: 35px;
+  position: absolute;
+  top: 30px;
+  right: 70px;
+  font-size: 35px;
+}

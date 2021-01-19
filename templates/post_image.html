@@ -3,16 +3,24 @@
 {% if request.user.is_authenticated != True %}
 <h1>Welcome to AnimeGram!</h1>
 {% endif %}
-
 <div class="">
-  <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1657/" target="_blank"
-    title="Emoticon Edmond Honda - Street Fighter"><img border="0" alt="Emoticon Edmond Honda - Street Fighter"
-      src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif" /></a>&nbsp;🔥🔥🔥<a
-    href="/">🏛️Home</a>
-  <h1 class="addpost">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
-  <h1 class="addpostright">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
+  <h3> <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1657/" target="_blank"
+      title="Emoticon Edmond Honda - Street Fighter"><img border="0" style="width: 40px" ;
+        alt="Emoticon Edmond Honda - Street Fighter"
+        src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif" /></a>
+    頑張ってください °</h3>
+
+  <!-- <a
+    href="/">🏛️</a> -->
+  <!-- 写真をアップする -->
+  <h1 class="postimage">
+    写<br />真<br />を<br />アッ<br />プ<br />す<br />る</br>°
+  </h1>
+  <h1 class="postimageright">
+    お<br />気<br />に<br />入<br />り<br />の<br />ア<br />ニ<br />メ<br />を<br />共<br />有<br />す<br />る</br>°
+  </h1>
   <div>
-    <h3>Add New Post ⬇️</h3>
+    <h3>Add New Post ⬇️<a href="/">🏛️</a></h3>
     <form action="" enctype="multipart/form-data" method="post">
       {{post_form.image}} {{post_form.image_caption}} {{post_form.anime_genre}}
       {% csrf_token %} {{ form.as_p }}
