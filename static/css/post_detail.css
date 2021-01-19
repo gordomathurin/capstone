@@ -62,7 +62,7 @@
 
 .hello {
   /* border: 1px solid red; */
-  width: 55px;
+  width: 48px;
   position: absolute;
   top: 150px;
   left: 50px;
@@ -71,14 +71,14 @@
   border-radius: 20px; 
   text-align: center;
   background-color: whitesmoke;
-  border: 5px solid rgba(126, 83, 228, 0.808);
+  border: 2px solid rgba(126, 83, 228, 0.808);
 
 
 }
 
 .bye {
   /* border: 1px solid red; */
-  width: 55px;
+  width: 48px;
   position: absolute;
   top: 20px;
   right: 100px;
@@ -87,30 +87,36 @@
   border-radius: 20px; 
   text-align: center;
   background-color: whitesmoke;
-  border: 5px solid rgba(126, 83, 228, 0.808);
+  border: 2px solid rgba(126, 83, 228, 0.808);
 
 
 
 }
 
 .konichiwaindex {
-  width: 35px;
+  width: 42px;
   position: absolute;
   top: 150px;
   left: 30px;
   font-size: 30px;
   border-radius: 20px; 
-  border: 2px solid whitesmoke;
+  /* border: 2px solid whitesmoke; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
 }
 
 .sayonaraindex {
-  width: 35px;
+  width: 42px;
   position: absolute;
   top: 50px;
   right: 100px;
   font-size: 30px;
   border-radius: 20px; 
-  border: 2px solid whitesmoke;
+  /* border: 2px solid whitesmoke; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
 }
 
 .profileA {
@@ -120,7 +126,10 @@
   left: 60px;
   font-size: 29px;
   border-radius: 20px; 
-  border: 3px solid whitesmoke;
+  /* border: 3px solid whitesmoke; */
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid rgba(126, 83, 228, 0.808);
 }
 
 .profileB {
@@ -130,7 +139,10 @@
   right: 70px;
   font-size: 27px;
   border-radius: 20px; 
-  border: 3px solid whitesmoke;
+  /* border: 3px solid whitesmoke; */
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid rgba(126, 83, 228, 0.808);
 }
 
 /* .feedA {
@@ -156,20 +168,30 @@
 
 .notification {
   /* border: 1px solid red; */
-  width: 35px;
+  width: 37.5px;
   position: absolute;
   top: 150px;
   right: 100px;
   font-size: 25px;
+  border-radius: 25px;
+  /* background-color: #276b80b2; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
+
 }
 
 .notificationleft {
   /* border: 1px solid red; */
-  width: 35px;
+  width: 36px;
   position: absolute;
   top: 210px;
   left: 30px;
   font-size: 25px;
+  border-radius: 25px;
+  /* background-color: #276b80b2; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
 }
 
 
@@ -182,6 +204,9 @@
   left: 30px;
   font-size: 23px;
   border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
 
 }
 
@@ -193,6 +218,9 @@
   right: 100px;
   font-size: 23px;
   border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
 }
 
 .editright2 {
@@ -204,6 +232,9 @@
   font-size: 23px;
   border-radius: 20px;
   border: 2px solid rgba(228, 83, 184, 0.644);
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
 
 }
 
@@ -224,6 +255,11 @@
   top: 180px;
   left: 30px;
   font-size: 50px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 5px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
 }
 
 .addpostright {
@@ -232,6 +268,11 @@
   top: 50px;
   right: 100px;
   font-size: 50px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 5px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
 }
 
 .logo-font {
@@ -258,17 +299,27 @@
 
 .postimage {
   /* border: 1px solid red; */
-  width: 35px;
+  width: 38px;
   position: absolute;
   top: 180px;
   left: 60px;
-  font-size: 35px;
+  font-size: 26px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
 }
 
 .postimageright {
-  width: 35px;
+  width: 38px;
   position: absolute;
   top: 30px;
   right: 70px;
-  font-size: 35px;
+  font-size: 26px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
 }
