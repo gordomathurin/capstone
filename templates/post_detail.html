@@ -16,14 +16,6 @@
         <h4 style="text-align:center"> 🔥🔥🔥 アニメ カード 🔥🔥🔥</h4>
         <div class="card">
             <img src="{{post.image.url}}" alt="post" style="width:100%">
-            <!-- <h1>❤️ {{ post.post_total }}</h1>
-            {{ post.post_total }} -->
-
-            <!-- <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-                <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i> -->
-
-            <!-- <a href='/dislike/{{ post.id }}/'><i class="fa fa-thumbs-down"></i></a> -->
-
             <div style="margin: 24px 0;">
                 <a href='/like/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
                     <a href='/dislike/{{ post.id }}/'><i onclick="myFunction(this)" class="fa fa-thumbs-down"></i>
@@ -37,18 +29,14 @@
                         <h5>❤️ {{ post.post_total}} Anime member :{{ post.anime_user }}</h5>
                         <h5>📝 Caption: {{ post.image_caption }}</h5>
                         <h5>📅 Uploaded : {{ post.post_creation }}</h5>
+                        <!-- <h5 class="fonts">📅 genre: {{ post.id.anime_genre}}</h5> -->
+
                         <h1 onclick="myFunction2()"> 🃏 </h1>
             </div>
 
-            <!-- <p><a href="/">
-                    <button>
-                        🏠 Home
-                    </button>
-                </a>
-            </p> -->
             <!-- Todo: You might need to delte the placeholder if it's not working -->
             <article class="media">
-                <figure class="media-left">
+                <!-- <figure class="media-left">
                     <p class="image is-64x64">
                         {% if request.user.pro.post_image %}
                         <img src="{{ request.user.pro.post_image.url }}" alt="Placeholder image">
@@ -56,7 +44,7 @@
                         <img src="{{ comment.comment.image.url }}" alt="Placeholder image">
                         {% endif %}
                     </p>
-                </figure>
+                </figure> -->
                 <div class="media-content">
                     <form method="post" action="" role="form">
                         {% csrf_token %}
