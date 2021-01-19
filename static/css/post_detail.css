@@ -78,6 +78,26 @@
   font-size: 50px;
 }
 
+.notification {
+  /* border: 1px solid red; */
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  right: 100px;
+  font-size: 25px;
+}
+
+.notificationleft {
+  /* border: 1px solid red; */
+  width: 35px;
+  position: absolute;
+  top: 210px;
+  left: 30px;
+  font-size: 25px;
+}
+
+
+
 .editleft {
   border: 1.2px solid rgba(255, 0, 0, 0.76);
   width: 35px;

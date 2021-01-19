@@ -10,55 +10,32 @@
 </head>
 
 <body>
-    <div class="">
-        <a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3258/" target="_blank"
-            title="Emoticon Mortal Kombat 23"><img border="0" style="width: 30px;" alt="Emoticon Mortal Kombat 23"
-                src="https://www.messentools.com/images/emoticones/mortal-kombat/www.MessenTools.com-games-mortal-kombat-022.gif"></a>
-        &nbsp;🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        <a href="/"> 🏛 </a>
+    <h3>🈁</h3>
+    <h1 class="notification">🔔<br />ア<br />ニ<br />メ <br />グ<br />ラ<br />ム<br />
+        か<br />ら<br />の<br />お<br />知<br />ら<br />せ<br />°</h1>
+    <h1 class="notificationleft">
+        <a href="/">🏠</a><br />ホ<br />ー<br />ム<br />ペ<br />ー<br />ジ<br />°
+    </h1>
+    <div class="container-fluid">
+        <br>
+        {% for alert in notifications %}
 
-        <!-- <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1> -->
-        <!-- <h1 class="hello">
-            <h6 class=""><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3859/"
-                target="_blank" title="Emoticon Street Fighter 1"><img border="0" style="width: 12px;"
-                  alt="Emoticon Street Fighter 1"
-                  src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>
-            </h6>
-            こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん
-          </h1> -->
-
-        <!-- <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1> -->
-        <h1 class="bye">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
-
-        <div class="container-fluid">
-            <h2> ⭕ Notifications</h2>
-
-            <br>
-            {% for alert in notifications %}
-
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="{{ alert.publisher.avatar.url }}" alt="" class="circle">
-                    <!-- <span class="title">{{ alert.publisher.username }}</span> -->
-                    <!-- print({{alert.publisher.username}})
-            print({{alert.count}}) -->
-
-                    <!-- <h3>✔️<a href="/profile/{{ alert.anime_user.id }}/">{{ alert.anime_user }}</a></h3> -->
-
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <div class="notification-box">
+                <img src="{{ alert.publisher.avatar.url }}" alt="" class="circle">
+               <div class="notification-minibox">
                     <span class="title">✔️<strong></strong>{{ alert.publisher.username }}</strong></span>
                     👉{{ alert.follow_message }}<br>
                     <p>✔️{{ alert.date }}
-
                     </p>
-                    <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
-                </li>
-            </ul>
-            {% endfor %}
+               </div>
+                </div>
+            </li>
+        </ul>
+        {% endfor %}
 
-        </div>
-
-
-
+    </div>
 
 
 </body>
