@@ -78,6 +78,27 @@
   font-size: 50px;
 }
 
+.konichiwaindex {
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 30px;
+  border-radius: 20px; 
+  border: 2px solid whitesmoke;
+}
+
+.sayonaraindex {
+  width: 35px;
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  font-size: 30px;
+  border-radius: 20px; 
+  border: 2px solid whitesmoke;
+}
+
+
 .notification {
   /* border: 1px solid red; */
   width: 35px;
@@ -131,7 +152,16 @@
 
 }
 
+/* .pt-3{
+   width: 35px;
+  position: absolute;
+  top: 3px;
+  right: 50px;
+  font-size: 23px; 
+  border-radius: 20px; 
+  border: 2px solid rgba(228, 83, 184, 0.644);
 
+} */
 .addpost {
   /* border: 1px solid red; */
   width: 35px;

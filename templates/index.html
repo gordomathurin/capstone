@@ -2,7 +2,6 @@
 {% load static %}
 {% block content %}
 <!-- TODO: repeat todo1 and move the navbar to the base -->
-
 <!DOCTYPE html>
 <html>
 
@@ -34,33 +33,10 @@
     <div class="">
 
 
-        <!-- 🔥🔥🔥
-            アニメグラム へようこそ
-            🔥🔥🔥</h3> -->
 
-        <!-- アニメグラム へようこそ -->
 
         <!-- <h1>Heyo, {{ request.user.username }}!</h1> -->
-        <!-- important -->
-        <!-- <h1>こんにちは皆さん
-            {{ request.user.username }}!</h1> -->
-
-
-        <!-- <i>AnimeGram enthusiast since: {{ request.user.created_on }}</i> -->
     </div>
-
-
-    <!-- {% for post in posts%}
-        <a href="/postdetail/{{post.id}}/">
-            <img src="{{ post.image.url }}" alt="image postings">
-        </a>
-        
-        {{post.image_caption}}
-        
-        {% endfor %} -->
-
-
-
 
     <div class="container">
         <div class="d-flex justify-content-start flex-wrap white">
@@ -70,16 +46,18 @@
                     title="Emoticon Street Fighter 1"><img border="0" style="width: 18px;"
                         alt="Emoticon Street Fighter 1"
                         src="https://www.messentools.com/images/emoticones/street-fighter/www.MessenTools.com-games-street-fighter-000.gif"></a>
-                <strong>🔥🔥🔥 アニメグラム へようこそ @ {{ request.user.username }}さん 🔥🔥🔥</strong>
+                🔥🔥🔥 アニメグラム へようこそ @ {{ request.user.username }}さん 🔥🔥🔥
             </h3>
 
-            <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
-            <h1 class="bye">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん</h1>
+            <h1 class="konichiwaindex">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん <br />° </h1>
+            <h1 class="sayonaraindex"> ア<br />ニ<br />メ<br />は<br />楽<br />し<br />い<br />で<br />す<br />°<br />
+                好<br />き<br />で<br />す<br />か<br />°
+            </h1>
 
             {% for post in posts %} {% if post.image %}
             <a href="/postdetail/{{post.id}}/">
                 <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="{{ post.image_caption }}"
-                    style="width: 256px; height: 256px; margin: 3px 0;" />
+                    style="width: 200px; height: 200px; margin: 3px 0;" />
             </a>
             {% else %}
             <a href="/postdetail/{{post.id}}/">
@@ -89,23 +67,6 @@
             {% endif %} {% endfor %}
         </div>
     </div>
-
-
-    <!-- <div class=""> -->
-    <!-- <p>user = {{request.user}}</p>
-    <p>user = {{request.user.avatar}}</p>
-    <p>user = {{ request.user.created_on }}</p> -->
-
-    <!-- {% if request.user.is_authenticated %}
-    {% if request.user.avatar%}
-
-    <img class="img-thumbnail" src="{{ request.user.avatar.url }}" alt="{{ request.user.username }}"
-        style="width: 266px; max-height: 240px" />
-    {% endif %}
-    {% else %}
-    <img class="" src="/media/images/default.jpg" alt="{{ users.username }}" style="width: 266px; max-height: 240px" />
-    {% endif %}
-</div> -->
 
     <div>
         <h6 style="text-align:center">
