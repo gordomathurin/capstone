@@ -323,3 +323,369 @@
   border-radius: 20px;
 
 }
+/* signup katana */
+.k {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.s {
+  width: 35px;
+  position: absolute;
+  top: 3px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  border: 2px solid rgba(228, 83, 184, 0.644);
+  text-align: center;
+  background-color: whitesmoke;
+
+}
+
+.vowels {
+  border: 1.2px solid rgba(255, 0, 0, 0.76);
+  width: 35px;
+  position: absolute;
+  top: 270px;
+  left: 15px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+
+}
+
+.t {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+ 
+.n {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.h {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.m {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.y {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.r {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.w {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.g {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.z {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.b{
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.p {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.d {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+/* Hirigana */
+
+.hk {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hs {
+  width: 35px;
+  position: absolute;
+  top: 3px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  border: 2px solid rgba(228, 83, 184, 0.644);
+  text-align: center;
+  background-color: whitesmoke;
+
+}
+
+.hvowels {
+  border: 1.2px solid rgba(255, 0, 0, 0.76);
+  width: 35px;
+  position: absolute;
+  top: 270px;
+  left: 15px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+
+}
+
+.ht {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+ 
+.hn {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hh {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hm {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hy {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hr {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hw {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hg {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hz {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hb{
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hp {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.hd {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 250px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+}
