@@ -1,53 +1,90 @@
-{% extends "base.html" %} {% block content %}
-</br>
-<div class="">
-    {% if not pro %}
-    <h2> ⭕ The user you are looking for does not exist</h2>
-    {% else %}
-    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1>
-    <a href="/" class="btn btn-primary">✅{{ pro }}</a>
-    {% if request.user.id == pro.id %}
-    <a href='edit/' class="btn btn-primary">⌨️ Edit Anime Profile</a>
-    <a href='delete/' class="btn btn-primary"
-        onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌ Delete Anime
-        Profile</a>
-</div>
-{% endif %}
-<div class="">
-    <div class="d-flex justify-content-start">
-        <p class="h1">👨‍💻{{ pro.username }}</p>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- TODO 3: Repeat TODO 1 -->
+<!DOCTYPE html>
 
-        {% if request.user.id != pro.id %}
-        {% if pro in user_following %}
-        <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
-                class="btn btn-primary mx-auto btn-lg ">Unfollow</a></p>
-        {% else %}
-        <h1>
+<html>
 
-        </h1>
-        <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
-                class="btn btn-primary mx-auto btn-lg ">Follow</a></p>
-        {% endif %}
-        {% endif %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
-    </div>
-</div>
 
-<div class="">
-    {% if pro.avatar %}
-    <img class="img-thumbnail" src="{{ pro.avatar.url }}" alt="{{ pro.username }}"
-        style="width: 150px; max-height: 200px" />
-    {% else %}
-    <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
-        style="width: 150px; max-height: 200px" />
-    {% endif %}
-</div>
-</br>
-<div class="">
-    <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
-    <p>My email: {{pro.email}}</p>
-    <p>About me: {{pro.about_me}}</p>
-    {% endif %}
-</div>
-</div>
+<body>
+    <h1 class="profileA">ア<br />ニ<br />メ<br />プ<br />ロ<br />フ<br />ィ<br />ー<br />ル<br />°</h1>
+    <h1 class="profileB">は<br />じ<br />め<br />ま<br />し<br />て<br />°
+        こ<br />の<br />サ<br />イ<br />ト<br />で<br />楽<br />し<br />ん<br />で<br />く<br />だ<br />さ<br />い<br />°</h1>
+
+
+    <div class="card test">
+        <div class="d-flex justify-content-start flex-wrap white">
+            {% if pro.avatar %}
+            <h5 style="text-align:center">
+                <div class="chipcontainerprofile">
+                    <div class="chipprofile">
+                        <img src="{{ pro.avatar.url }}" alt="Person" width="20" height="20">
+                        <div class="usernameprofile">{{ pro.username }} ❤</div>
+                    </div>🔥🔥🔥アニメ カード
+                </div>
+
+                <img class="img-thumbnail m-auto" src="{{ pro.avatar.url }}" alt="{{pro.username}}"
+                    style="width: 370px; height: 250px" />
+                <div style="margin: 16px 0;">
+                    <p> <strong>✔️First Name: {{pro.first_name}}</strong></p>
+                    <p> <strong>✔️Last Name: {{pro.last_name}}</strong></p>
+                    <p> <strong>📧 email: {{pro.email}}</strong></p>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <br /><br />
+                    {% if request.user.id == pro.id %}
+                    <div class="detail">
+                        <a href='edit/' class="">⌨️</a>
+                        <a href='delete/' class=""
+                            onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌</a>
+                    </div>
+                    {% endif %}
+                    <br />
+                    <div class="">
+                        <div class="d-flex justify-content-start">
+                            <p class="h3"></p>
+
+                            {% if request.user.id != pro.id %}
+                            {% if pro in user_following %}
+                            <p class="unfollow"><a href="/unfollow/{{ pro.id }}/" type="button" class="">❌Unfollow</a>
+                            </p>
+                            {% else %}
+                            <h1>
+
+                            </h1>
+                            <p class="follow"><a href="/follow/{{ pro.id }}" type="button" class=""> ✔️ Follow</a></p>
+                            {% endif %}
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <p class="aboutme">🎴 About me: 👁️‍🗨️ {{pro.about_me}}</p>
+                <p><strong> ©️ アニメ enthusiast since: {{ pro.created_on }}</strong></p>
+
+                <p><a href="/">
+                        <button>
+                            🏠 Home
+                        </button>
+                    </a>
+
+                    {% else %}
+                    <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
+                        style="width: 150px; max-height: 200px" />
+                    {% endif %}
+
+
+        </div>
+
+</body>
+
+</html>
+
 {% endblock %}

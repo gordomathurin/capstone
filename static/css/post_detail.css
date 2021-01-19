@@ -1,0 +1,325 @@
+/* body {
+  background-image: url("../../media/images/github.png");
+} */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .cardB {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 440px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+  .fa {
+    font-size: 50px;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .fa:hover {
+    color: darkblue;
+  }
+
+  img:hover {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }  
+
+.hello {
+  /* border: 1px solid red; */
+  width: 48px;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  font-size: 30px;
+  /* border: 3px solid whitesmoke; */
+  border-radius: 20px; 
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+
+
+}
+
+.bye {
+  /* border: 1px solid red; */
+  width: 48px;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  font-size: 30px;
+  /* border: 3px solid whitesmoke; */
+  border-radius: 20px; 
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+
+
+
+}
+
+.konichiwaindex {
+  width: 42px;
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 30px;
+  border-radius: 20px; 
+  /* border: 2px solid whitesmoke; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
+}
+
+.sayonaraindex {
+  width: 42px;
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  font-size: 30px;
+  border-radius: 20px; 
+  /* border: 2px solid whitesmoke; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
+}
+
+.profileA {
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  font-size: 29px;
+  border-radius: 20px; 
+  /* border: 3px solid whitesmoke; */
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid rgba(126, 83, 228, 0.808);
+}
+
+.profileB {
+  width: 35px;
+  position: absolute;
+  top: -7px;
+  right: 70px;
+  font-size: 27px;
+  border-radius: 20px; 
+  /* border: 3px solid whitesmoke; */
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid rgba(126, 83, 228, 0.808);
+}
+
+/* .feedA {
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  font-size: 29px;
+  border-radius: 20px; 
+  border: 3px solid whitesmoke;
+}
+
+.feedB {
+  width: 35px;
+  position: absolute;
+  top: -7px;
+  right: 70px;
+  font-size: 27px;
+  border-radius: 20px; 
+  border: 3px solid whitesmoke;
+} */
+
+
+.notification {
+  /* border: 1px solid red; */
+  width: 37.5px;
+  position: absolute;
+  top: 150px;
+  right: 100px;
+  font-size: 25px;
+  border-radius: 25px;
+  /* background-color: #276b80b2; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  text-align: center;
+
+}
+
+.notificationleft {
+  /* border: 1px solid red; */
+  width: 36px;
+  position: absolute;
+  top: 210px;
+  left: 30px;
+  font-size: 25px;
+  border-radius: 25px;
+  /* background-color: #276b80b2; */
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+}
+
+
+
+.editleft {
+  border: 1.2px solid rgba(255, 0, 0, 0.76);
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  left: 30px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
+
+}
+
+.editright {
+  border: 2px solid rgba(0, 255, 106, 0.623);
+  width: 35px;
+  position: absolute;
+  top: 2px;
+  right: 100px;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
+}
+
+.editright2 {
+  /* border: 1px solid red; */
+  width: 35px;
+  position: absolute;
+  top: 3px;
+  right: 50px;
+  font-size: 23px;
+  border-radius: 20px;
+  border: 2px solid rgba(228, 83, 184, 0.644);
+  text-align: center;
+  background-color: whitesmoke;
+  /* border: 1px solid rgba(126, 83, 228, 0.808); */
+
+}
+
+/* .pt-3{
+   width: 35px;
+  position: absolute;
+  top: 3px;
+  right: 50px;
+  font-size: 23px; 
+  border-radius: 20px; 
+  border: 2px solid rgba(228, 83, 184, 0.644);
+
+} */
+.addpost {
+  /* border: 1px solid red; */
+  width: 35px;
+  position: absolute;
+  top: 180px;
+  left: 30px;
+  font-size: 50px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 5px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
+}
+
+.addpostright {
+  width: 35px;
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  font-size: 50px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 5px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
+}
+
+.logo-font {
+  font-family: fantasy;
+  font-size: 2em;
+  color: rgba(182, 17, 168, 0.603);
+  /* border: 1px solid red; */
+
+}
+
+/* .console {
+  min-height: 75px;
+
+}
+
+.container1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+} */
+
+.postimage {
+  /* border: 1px solid red; */
+  width: 38px;
+  position: absolute;
+  top: 180px;
+  left: 60px;
+  font-size: 26px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
+}
+
+.postimageright {
+  width: 38px;
+  position: absolute;
+  top: 30px;
+  right: 70px;
+  font-size: 26px;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 2px solid rgba(126, 83, 228, 0.808);
+  border-radius: 20px;
+
+}

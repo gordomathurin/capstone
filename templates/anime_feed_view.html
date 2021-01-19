@@ -1,11 +1,102 @@
-<a href="/">
-  <button>
-    🏠 Home
-  </button>
-</a>
-<br />
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
 
-{% for post in posts %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- <div align="left">
+    <a href="javascript:history.go(-1)">👽</a>&nbsp;
+    <a href="/" class="btn btn-primary">🏠Home</a>&nbsp;
+    <a href="/signup/" class="btn btn-primary">🖋️Signup</a>
+    {% if request.user.is_authenticated %}
+    <a href="/logout/" class="btn btn-primary">🔓Logout</a>
+    <a href="/profile/{{request.user.username}}" class="btn btn-primary">👨‍Profile</a>
+    <a href="/newpost/" class="btn btn-primary">Add Post</a>
+    <a href="/animefeed/" class="btn btn-primary">Anime Feed</a>
+    <a href="/notifications/" class="btn btn-primary">📜 Notifications</a>
+    {% else %}
+    <a href="/login/" class="btn btn-primary">🔒Login</a>
+    {% endif %}
+  </div> -->
+  <!-- <h6 style="text-align:center"> -->
+  <h6 class="text-center pt-3">
+    <div class="chipcontainer3">
+      <div class="chip3">
+        <div class="username3"><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/3258/"
+            target="_blank" title="Emoticon Mortal Kombat 23"><img border="0" style="width: 17px;"
+              alt="Emoticon Mortal Kombat 23"
+              src="https://www.messentools.com/images/emoticones/mortal-kombat/www.MessenTools.com-games-mortal-kombat-022.gif"></a>
+          {{ request.user.username }} さん ❤ アニメ
+        </div>
+      </div>
+    </div>
+    <!-- <strong>🔥🔥 アニメグラム へようこそ @ {{ request.user.username }}さん 🔥🔥</strong> -->
+  </h6>
+  <!-- <h1>こんにちは皆さん
+      {{ request.user.username }}!</h1> -->
+  <!-- <br /> -->
+  <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん<br />°</h1>
+  <h1 class="bye"> 素<br />晴<br />ら<br />し<br />い<br />、<br />始<br />め<br />ま<br />し<br />ょ<br />う<br />°</h1>
+
+
+  <div class="d-flex justify-content-start flex-wrap white">
+    <div class="cardB">
+      {% for post in posts %} {% if post.image %}
+      <a href="/postdetail/{{post.id}}/">
+        <img class="img-thumbnail m-auto" src="{{ post.image.url }}" alt="Feed Image"
+          style="width: 460px; height: 355px" />
+        <div style="margin: 24px 0;">
+          <h5 class="fonts1">❤️ {{ post.likes}} Anime member :{{ post.anime_user }}</h5>
+          <h5 class="fonts">📝 Caption: {{ post.image_caption }}</h5>
+          <h5 class="fonts">📅 Uploaded : {{ post.post_creation }}</h5>
+
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <h1 onclick="myFunction()">📺 </h1>
+
+          <p><a href="/">
+              <button>
+                🏠 Home
+              </button>
+            </a></p>
+          <!-- <h3 onclick="myFunction()">📺 </h3> -->
+
+
+        </div>
+        <script>
+          function myFunction() {
+            location.replace("https://www.crunchyroll.com/videos/anime")
+          }
+        </script>
+
+        <!-- <h5>{{ post.anime_user }}</h5>
+        <h5>{{ post.image_caption }}</h5>
+        <h5>{{ post.post_creation }}</h5>
+        <br />
+        <a href="">
+          <h1>❤️{{ post.likes}}</h1>
+        </a> -->
+        {% else %}
+        <a href="/postdetail/{{post.id}}/">
+          <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
+            style="width: 277px; height: 277px" />
+        </a>
+        {% endif %} {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}
+
+<!-- {% for post in posts %}
 
 <div>
   <a href="/postdetail/{{post.id}}/">
@@ -22,4 +113,4 @@
   </a>
 </div>
 
-{% endfor %}
+{% endfor %} -->
