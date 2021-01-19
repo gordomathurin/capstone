@@ -98,6 +98,26 @@
   border: 2px solid whitesmoke;
 }
 
+.profileA {
+  width: 35px;
+  position: absolute;
+  top: 150px;
+  left: 60px;
+  font-size: 29px;
+  border-radius: 20px; 
+  border: 3px solid whitesmoke;
+}
+
+.profileB {
+  width: 35px;
+  position: absolute;
+  top: -7px;
+  right: 70px;
+  font-size: 27px;
+  border-radius: 20px; 
+  border: 3px solid whitesmoke;
+}
+
 
 .notification {
   /* border: 1px solid red; */

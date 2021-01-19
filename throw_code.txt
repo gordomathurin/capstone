@@ -71,3 +71,79 @@
 # def comment_likes(request, pk):
 #     add_one(pk, Comment)
 #     return redirect(request.META.get("HTTP_REFERER"))
+
+# Anime_user_detail.html
+
+ <!-- <div class="">
+    {% if not pro %}
+    <h2> ⭕ The user you are looking for does not exist</h2>
+    {% else %}
+    <h1><a href="/">🏛 Home</a>{{ pro.username }}</h1> -->
+    <!-- <a href="/" class="btn btn-primary">✅{{ pro }}</a> -->
+    <!-- {% if request.user.id == pro.id %}
+    <a href='edit/' class="btn btn-primary">⌨️ Edit Anime Profile</a>
+    <a href='delete/' class="btn btn-primary"
+        onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌ Delete Anime
+        Profile</a> -->
+    <!-- </div>
+{% endif %} -->
+    <!-- <div class="">
+    <div class="d-flex justify-content-start">
+        <p class="h3"></p>
+
+        {% if request.user.id != pro.id %}
+        {% if pro in user_following %}
+        <p class="h1 ml-5 "><a href="/unfollow/{{ pro.id }}/" type="button"
+                class="btn btn-primary mx-auto btn-lg ">Unfollow</a></p>
+        {% else %}
+        <h1>
+
+        </h1>
+        <p class="h1 ml-5 "><a href="/follow/{{ pro.id }}" type="button"
+                class="btn btn-primary mx-auto btn-lg ">Follow</a></p>
+        {% endif %}
+        {% endif %}
+
+    </div>
+</div> -->
+<!-- <p class="aboutme">🎴 About me 👁️‍🗨️ {{pro.about_me}}</p> -->
+                    <!-- <p> Genre: {{pro.anime_genre}}</p> -->
+
+                    <br />
+                    </a>
+
+                    <!-- <a href="#"><i class="fa fa-google-plus btn-google-plus"></i></a>
+                    <a href="#"><i class="fa fa-pinterest btn-pinterest"></i></a>
+                    <a href="#"><i class="fa fa-reddit btn-reddit"></i></a>
+                    <a href="#"><i class="fa fa-dropbox btn-dropbox"></i></a> -->
+ <!-- {% if request.user.id == pro.id %}
+<div class="detail">
+                    <a href='edit/' class="">⌨️</a>
+
+                    <a href='delete/' class=""
+                        onclick="return confirm('🛑 Are you 💯 sure you want to delete your anime profile 👨‍💻 ⁉️')">❌</a>
+                        </div>
+                    {% endif %} -->
+<!-- <div class="">
+        {% if pro.avatar %}
+        <img class="img-thumbnail" src="{{ pro.avatar.url }}" alt="{{ pro.username }}" width="150" max-height="200" />
+        {% else %}
+        <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ pro.username }}"
+            style="width: 150px; max-height: 200px" />
+        {% endif %}
+    </div>
+    </br> -->
+        <!-- <div class="">
+            <i>AnimeGram enthusiast since: {{ pro.created_on }}</i>
+            <p>My email: {{pro.email}}</p>
+            <p>About me: {{pro.about_me}}</p>
+            <div class="chip">
+                <img src="{{ pro.avatar.url }}" alt="Person" width="96" height="96">
+
+                {{pro.username}}
+
+            </div>
+
+            {% endif %}
+        </div> -->
+#
