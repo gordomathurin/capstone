@@ -42,9 +42,10 @@
     border-radius: 25px;
     /* background-color: #276b80b2; */
     background-color: #f1f1f1ee;
-    border: 2px solid black;
+    /* border: 2px solid black; */
+    border: 2px solid rgba(126, 83, 228, 0.808);
     display: flex;
-   align-items: center;
+    align-items: center;
 
   }
 
