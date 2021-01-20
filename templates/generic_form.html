@@ -11,21 +11,30 @@
             alt="Emoticon Edmond Honda - Street Fighter"
             src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif"></a>&nbsp;
             🔥🔥🔥 -->
+    <!-- <a href="/">🏠</a>
+    <h3 class="welcome">Welcome to アニメグラム!</h3> -->
+
     <!-- <h1 class="vowels"><br>ア<br>イ<br>ウ<br>エ<br>オ<br>ヴ</h1>
     <h1 class="k"><br>カ<br>キ<br>ク<br>ケ<br>コ</h1>
     <h1 class="s"><br>サ<br>シ<br>ス<br>セ<br>ソ</h1>
     <h1 class="t"><br>タ<br>チ<br>ツ<br>テ<br>ト<br>ッ</h1>
     <h1 class="n"><br>ナ<br>ニ<br>ヌ<br>ネ<br>ノ<br>ン</h1>
-    <h1 class="h"><br>ハ<br>ヒ<br>フ<br>ヘ<br>ホ</h1> -->
-    <!-- <h1 class="m"><br>マ<br>ミ<br>ム<br>メ<br>モ</h1> -->
-    <!-- <h1 class="y"><br>ヤ<br>ユ<br>ヨ</h1> -->
-    <!-- <h1 class="r"><br>ラ<br>リ<br>ル<br>レ<br>ロ</h1> -->
-    <!-- <h1 class="w"><br>ワ<br>ヰ<br>ヱ<br>ヲ</h1> -->
-    <!-- <h1 class="g"><br>ガ<br>ギ<br>グ<br>ゲ<br>ゴ</h1> -->
+    <h1 class="h"><br>ハ<br>ヒ<br>フ<br>ヘ<br>ホ</h1>
+    <h1 class="m"><br>マ<br>ミ<br>ム<br>メ<br>モ</h1>
+    <h1 class="y"><br>ヤ<br>ユ<br>ヨ</h1>
+    <h1 class="r"><br>ラ<br>リ<br>ル<br>レ<br>ロ</h1>
+    <h1 class="w"><br>ワ<br>ヰ<br>ヱ<br>ヲ</h1>
+    <h1 class="g"><br>ガ<br>ギ<br>グ<br>ゲ<br>ゴ</h1> -->
     <!-- <h1 class="z"><br>ダ<br>ヂ<br>ヅ<br>デ<br>ド</h1> -->
-    <!-- <h1 class="b"><br>バ<br>ビ<br>ブ<br>ベ<br>ボ</h1> -->
-    <!-- <h1 class="p"><br>パ<br>ピ<br>プ<br>ペ<br>ポ</h1> -->
-    <!-- <h1 class="d"><br>ダ<br>ヂ<br>ヅ<br>デ<br>ド</h1>  -->
+    <!-- <h1 class="b"><br>バ<br>ビ<br>ブ<br>ベ<br>ボ</h1>
+    <h1 class="p"><br>パ<br>ピ<br>プ<br>ペ<br>ポ</h1>
+    <h1 class="d"><br>ダ<br>ヂ<br>ヅ<br>デ<br>ド</h1> -->
+    <!-- <h1 class="honda"><br><a href="https://www.messentools.com/en/msn-emoticon-details-and-download/id/1657/"
+            target="_blank" title="Emoticon Edmond Honda - Street Fighter"><img border="0" style="width: 80px"
+                alt="Emoticon Edmond Honda - Street Fighter"
+                src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif"></a>
+    </h1> -->
+
 
     <!-- <h1 class="hvowels"><br>あいうえ</h1>
     <h1 class="hk"><br>かきくけこ</h1>
@@ -43,42 +52,35 @@
     <h1 class="hp"><br>ばびぶべぼ</h1>
     <h1 class="hd"><br>ぱぴぷぺぽ</h1>
      -->
+
     <div class="cardc">
-        <div class="d-flex justify-content-start flex-wrap white">
-            <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded mt-5">
-                <div class="text-center mb-4">
-                    <div class="console logo-font">
+        <div>
+            <div class="d-flex justify-content-start flex-wrap white">
+                <div class="mx-auto shadow-lg p-3 mb-5 bg-white rounded mt-5">
+                    <div class="text-center mb-4">
+                        <div class="console logo-font">
 
-                        <h3>Welcome to アニメグラム<a href="/">🏠</a></h3>
-                        <form action="" enctype="multipart/form-data" method="post">
-                            {% csrf_token %}
-                            {% for field in form.visible_fields %}
-                            <div class="form-group">
-                                <label for="{{ field.id_for_label}}">{{ field.label }}</label>
-                                <input type="{{field.field.widget.input_type}}" name="{{field.name}}"
-                                    class="form-control" id="{{ field.id_for_label}}" placeholder="{{ field.label }}">
-                            </div>
-                            {% endfor %}
+                            <h3>Welcome to アニメグラム<a href="/">🏠</a></h3>
+                            <form action="" enctype="multipart/form-data" method="post">
+                                {% csrf_token %}
+                                {% for field in form.visible_fields %}
+                                <div class="form-group">
+                                    <label for="{{ field.id_for_label}}">{{ field.label }}</label>
+                                    <input type="{{field.field.widget.input_type}}" name="{{field.name}}"
+                                        class="form-control" id="{{ field.id_for_label}}"
+                                        placeholder="{{ field.label }}">
+                                </div>
+                                {% endfor %}
 
-                            <input type="submit" value="Submit" />
-                        </form>
-                        <br/>
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <br />
+                        </div>
+
                     </div>
-
                 </div>
             </div>
         </div>
+
     </div>
-
-
-    <!-- <div>
-        <h3>Please sign in ⬇️</h3>
-        <form action="" enctype="multipart/form-data" method="post">
-            {% csrf_token %} {{ form.as_p }}
-            <input type="submit" value="Submit Form" />
-        </form>
-    </div> -->
-
-</div>
-</br>
-{% endblock %}
+    {% endblock %}

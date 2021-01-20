@@ -9,6 +9,15 @@
     font-family: arial;
   }
 
+  .cardz {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 390px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+
+
   .cardc{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 500px;
