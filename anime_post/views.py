@@ -21,7 +21,7 @@ from anime_notification.models import Notification
 # Create your views here.
 @login_required
 def new_post_view(request):
-    raise Exception("Make response code 500!")
+    # raise Exception("Make response code 500!")
     html = "post_image.html"
     anime_user = request.user
 
