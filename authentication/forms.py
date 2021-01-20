@@ -28,8 +28,8 @@ class SignUpForm(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(
-        max_length=50, widget=forms.TextInput(attrs={"class": "form-control"})
+        max_length=50, widget=forms.TextInput(attrs={"class": "form-control-sm"})
     )
     password = forms.CharField(
-        widget=forms.PasswordInput(attrs={"class": "form-control"})
+        widget=forms.PasswordInput(attrs={"class": "form-control-sm"})
     )
