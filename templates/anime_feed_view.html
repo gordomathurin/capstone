@@ -36,11 +36,7 @@
         </div>
       </div>
     </div>
-    <!-- <strong>🔥🔥 アニメグラム へようこそ @ {{ request.user.username }}さん 🔥🔥</strong> -->
   </h6>
-  <!-- <h1>こんにちは皆さん
-      {{ request.user.username }}!</h1> -->
-  <!-- <br /> -->
   <h1 class="hello">こ<br />ん<br />ち<br />は<br />皆<br />さ <br />ん<br />°</h1>
   <h1 class="bye"> 素<br />晴<br />ら<br />し<br />い<br />、<br />始<br />め<br />ま<br />し<br />ょ<br />う<br />°</h1>
 
@@ -55,6 +51,11 @@
           <h5 class="fonts1">❤️ {{ post.likes}} Anime member :{{ post.anime_user }}</h5>
           <h5 class="fonts">📝 Caption: {{ post.image_caption }}</h5>
           <h5 class="fonts">📅 Uploaded : {{ post.post_creation }}</h5>
+          <!-- <h5 class="fonts">📅 genre: {{ post.anime_genre.choices }}</h5> -->
+
+
+
+
 
           <a href="#"><i class="fa fa-twitter"></i></a>
           <a href="#"><i class="fa fa-linkedin"></i></a>
@@ -63,26 +64,23 @@
 
           <p><a href="/">
               <button>
-                🏠 Home
+                🏠
+                <a href="/profile/{{request.user.username}}">🐱‍💻</a>
+                <a href="/newpost/">🐱‍🏍</a>
+                <a href="javascript:history.go(-1)">㊗️</a>
+                <a href="/notifications/">🔔</a><br />
+
+
+
               </button>
             </a></p>
-          <!-- <h3 onclick="myFunction()">📺 </h3> -->
-
-
         </div>
+
         <script>
           function myFunction() {
             location.replace("https://www.crunchyroll.com/videos/anime")
           }
         </script>
-
-        <!-- <h5>{{ post.anime_user }}</h5>
-        <h5>{{ post.image_caption }}</h5>
-        <h5>{{ post.post_creation }}</h5>
-        <br />
-        <a href="">
-          <h1>❤️{{ post.likes}}</h1>
-        </a> -->
         {% else %}
         <a href="/postdetail/{{post.id}}/">
           <img class="img-thumbnail" src="/static/images/default.jpg" alt="{{ post.image_caption}}"
@@ -95,22 +93,3 @@
 
 </html>
 {% endblock %}
-
-<!-- {% for post in posts %}
-
-<div>
-  <a href="/postdetail/{{post.id}}/">
-    <img src="{{ post.image.url }}" alt="Feed Image" />
-  </a>
-  <h3>{{ post.anime_user }}</h3>
-  <h3>{{ post.image_caption }}</h3>
-  <h3>{{ post.post_creation }}</h3>
-  <br />
-  <a href="">
-    <button>
-      {{ post.likes}}
-    </button>
-  </a>
-</div>
-
-{% endfor %} -->

@@ -30,22 +30,6 @@ def comment_dislike_view(request, comment_id):
     return HttpResponseRedirect(f"/postdetail/{comment.anime_post.id}/")
 
 
-# def comment_form_view(request, post_id):
-#     post = get_object_or_404(AnimePost, id=post_id)
-#     if request.method == "POST":
-#         form = CommentForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             comment = form.save(commit=False)
-#             comment.post = post
-#             comment.commenter = request.user
-#             comment.save()
-#             return redirect("post", post.id)
-#     else:
-#         form = CommentForm()
-#     return render(request, "comment_form.html", {"form": form})
-
-
 def delete_comment_view(request, comment_id):
     comment = Comment.objects.filter(id=comment_id).first()
     if (
@@ -77,28 +61,3 @@ def edit_comment_view(request, comment_id):
         return HttpResponseForbidden("You do not have permission to edit this comment")
 
 
-# def edit_view(request, recipe_id):
-#     html = 'edit_recipe.html'
-#     edit_recipe = Recipe.objects.get(id=recipe_id)
-#     init_data = {
-#         'title': edit_recipe.title,
-#         'description': edit_recipe.description,
-#         'time_required': edit_recipe.time_required,
-#         'ingredients': edit_recipe.ingredients,
-#         'instructions': edit_recipe.instructions,
-#     }
-#     if request.user is edit_recipe.author.id or request.user.is_staff:
-#         if request.method == 'POST':
-#             form = EditRecipeForm(request.POST)
-#             if form.is_valid():
-#                 data = form.cleaned_data
-#                 edit_recipe.title = form.data['title']
-#                 edit_recipe.description = form.data['description']
-#                 edit_recipe.time_required = form.data['time_required']
-#                 edit_recipe.ingredients = form.data['ingredients']
-#                 edit_recipe.instructions = form.data['instructions']
-#                 edit_recipe.save()
-#                 return HttpResponseRedirect(reverse('Homepage'))
-#     form = EditRecipeForm(initial=init_data)
-#     display_context = {'form': form}
-#     return render(request, html, display_context)

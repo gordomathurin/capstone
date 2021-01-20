@@ -10,9 +10,6 @@
         src="https://www.messentools.com/images/emoticones/games/www.MessenTools.com-Games-street_fighter-10.gif" /></a>
     頑張ってください °</h3>
 
-  <!-- <a
-    href="/">🏛️</a> -->
-  <!-- 写真をアップする -->
   <h1 class="postimage">
     写<br />真<br />を<br />アッ<br />プ<br />す<br />る</br>°
   </h1>
@@ -20,7 +17,14 @@
     お<br />気<br />に<br />入<br />り<br />の<br />ア<br />ニ<br />メ<br />を<br />共<br />有<br />す<br />る</br>°
   </h1>
   <div>
-    <h3>Add New Post ⬇️<a href="/">🏛️</a></h3>
+    <h3>Add New Post <a href="/">🏠</a>
+      <a href="/profile/{{request.user.username}}">🐱‍💻</a>
+      <a href="/newpost/">🐱‍🏍</a>
+      <a href="javascript:history.go(-1)">㊗️</a>
+      <a href="/notifications/">🔔</a><br />
+
+    
+    </h3>
     <form action="" enctype="multipart/form-data" method="post">
       {{post_form.image}} {{post_form.image_caption}} {{post_form.anime_genre}}
       {% csrf_token %} {{ form.as_p }}
