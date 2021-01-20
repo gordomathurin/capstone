@@ -15,5 +15,9 @@ class NewPost(forms.Form):
     )
 
     image = forms.ImageField(required=True)
-    image_caption = forms.CharField(max_length=600, required=True)
+    image_caption = forms.CharField(
+        max_length=600,
+        required=True,
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+    )
     anime_genre = forms.ChoiceField(choices=GENRE_CHOICES, required=True)
