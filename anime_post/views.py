@@ -18,11 +18,10 @@ from anime_post.forms import NewPost
 from anime_notification.models import Notification
 
 
-
 # Create your views here.
 @login_required
 def new_post_view(request):
-
+    raise Exception("Make response code 500!")
     html = "post_image.html"
     anime_user = request.user
 
@@ -75,7 +74,6 @@ def post_detail_view(request, post_id):
         "form": form,
         "comments": comments,
     }
-    # return HttpResponseRedirect(html, request)
     return render(request, html, context)
 
 
@@ -84,7 +82,6 @@ def post_like_view(request, post_id):
     # anime_post = AnimePost.objects.filter(id=post_id).first()
     anime_post.likes += 1
     anime_post.save()
-    # return redirect("animefeed")
     return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
 
 
@@ -93,7 +90,6 @@ def post_dislike_view(request, post_id):
     # anime_post = AnimePost.objects.filter(id=post_id).first()
     anime_post.dislikes += 1
     anime_post.save()
-    # return redirect("animefeed")
     return HttpResponseRedirect(reverse("anime_post_detail", args=[post_id]))
 
 
