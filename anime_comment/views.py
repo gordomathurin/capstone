@@ -59,5 +59,3 @@ def edit_comment_view(request, comment_id):
         return render(request, "comment_form.html", {"form": form})
     else:
         return HttpResponseForbidden("You do not have permission to edit this comment")
-
-

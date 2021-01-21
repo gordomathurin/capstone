@@ -15,9 +15,9 @@ import os
 import sys
 
 # code to hide secret key
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     "anime_post",
     "anime_comment",
     "anime_notification",
-    "crispy_forms",
 ]
 
 MIDDLEWARE = [
